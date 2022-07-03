@@ -72,10 +72,15 @@ class LinkedList:
             ptr = ptr.next
 
     def print_list(self):
+        if self.head is None:
+            print("Empty List")
+            return None
+            
         ptr = self.head
         while True:
             print(ptr.data, end = ' - ')
             if ptr.next == self.head:
+                print()
                 break
             ptr = ptr.next
 
