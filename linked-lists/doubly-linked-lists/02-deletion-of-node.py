@@ -1,11 +1,13 @@
 # for garbage collection
 import gc
 
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
         self.prev = None
+
 
 class LinkedList:
     def __init__(self):
@@ -21,10 +23,10 @@ class LinkedList:
         # if head is not none
         if self.head != None:
             self.head.prev = new_node
-        
+
         # changing the head
         self.head = new_node
-    
+
     def insert_at_end(self, new_data):
         # creating new node
         new_node = Node(new_data)
@@ -36,7 +38,7 @@ class LinkedList:
 
         # iterating the last node
         ptr = self.head
-        while (ptr.next != None):
+        while ptr.next != None:
             ptr = ptr.next
 
         ptr.next = new_node
@@ -44,6 +46,8 @@ class LinkedList:
 
     def delete_node(self, dele):
         ptr = self.head
+
+        # if the node is null or dele is null
         if ptr is None or dele is None:
             return
 
@@ -52,18 +56,22 @@ class LinkedList:
             ptr.next.prev = None
             self.head = ptr.next
             return
-        
+
         while ptr:
+
             # when we reach the deletion node
             if ptr.data == dele:
+
                 # if the node to be deleted is the last node
                 # changing the last connection
                 if ptr.next == None:
                     ptr.prev.next = None
+
                 # otherwise changing connections
                 else:
                     ptr.next.prev = ptr.prev
                     ptr.prev.next = ptr.next
+
                 return
 
             ptr = ptr.next
@@ -71,11 +79,12 @@ class LinkedList:
     def print_list(self):
         ptr = self.head
         while ptr:
-            print(ptr.data, end = ' - ')
+            print(ptr.data, end=" - ")
             ptr = ptr.next
         print()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(4)
     llist.insert_at_front(3)
