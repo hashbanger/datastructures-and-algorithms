@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -57,17 +58,18 @@ class LinkedList:
     def get_middle(self, head):
         if head is None:
             return head
-        
+
         slow = head
         fast = head
 
-        while (fast.next != None and fast.next.next != None):
+        while fast.next != None and fast.next.next != None:
             slow = slow.next
             fast = fast.next.next
-        
+
         return slow
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(15)
     llist.insert_at_front(10)

@@ -3,11 +3,13 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # created an empty list
     llist = LinkedList()
 
@@ -25,4 +27,3 @@ if __name__ == '__main__':
     print(llist.head.data)
     print(llist.head.next.data)
     print(llist.head.next.next.data)
-

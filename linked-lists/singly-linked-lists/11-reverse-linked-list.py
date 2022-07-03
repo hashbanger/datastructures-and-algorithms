@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -34,7 +35,8 @@ class LinkedList:
             print(current.data, end=" - ")
             current = current.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(7)
     llist.insert_at_front(6)

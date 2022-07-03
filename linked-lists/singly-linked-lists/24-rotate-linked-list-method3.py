@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -18,14 +19,14 @@ class LinkedList:
         while current:
             print(current.data, end=" - ")
             current = current.next
-    
+
     def rotation_by_k(self, k):
-        if k==0:
+        if k == 0:
             return
 
         # clockwise rotation
         current = self.head
-        
+
         # create a circular linked list first
         while current.next != None:
             current = current.next
@@ -35,7 +36,7 @@ class LinkedList:
         current = self.head
 
         # move it to previous node to new head
-        for _ in range(k-1):
+        for _ in range(k - 1):
             current = current.next
 
         # change the connections
@@ -44,7 +45,8 @@ class LinkedList:
 
         return self.head
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(60)
     llist.insert_at_front(50)

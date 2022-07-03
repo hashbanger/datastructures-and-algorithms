@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -12,7 +13,7 @@ class LinkedList:
         # if not empty return the head
         if self.head != None:
             return self.head
-        
+
         # creating a new node
         new_node = Node(new_data)
 
@@ -22,7 +23,7 @@ class LinkedList:
         new_node.next = new_node
 
         return self.head
-    
+
     def insert_at_front(self, new_data):
         if self.head == None:
             return self.insert_in_empty(new_data)
@@ -51,9 +52,9 @@ class LinkedList:
         middle = slow_ptr
 
         ptr = self.head
-        while (ptr != middle.next):
+        while ptr != middle.next:
             ptr = ptr.next
-        
+
         # if the list is even move the fast ptr to the last node
         if fast_ptr.next.next == self.head:
             fast_ptr = fast_ptr.next
@@ -73,13 +74,14 @@ class LinkedList:
 
         ptr = self.head
         while True:
-            print(ptr.data, end = ' - ')
+            print(ptr.data, end=" - ")
             if ptr.next == self.head:
                 print()
                 break
             ptr = ptr.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(7)
     llist.insert_at_front(6)

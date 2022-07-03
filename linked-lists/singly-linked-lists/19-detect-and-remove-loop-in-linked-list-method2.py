@@ -1,8 +1,11 @@
 import time
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -34,10 +37,10 @@ class LinkedList:
                 # removing the loop
                 self.remove_loop(slow_ptr)
                 return
-    
+
     def remove_loop(self, slow_ptr):
         current = self.head
-        # we iterate over each node as current 
+        # we iterate over each node as current
         # and run the loop and see if it encounters the current
         while current:
             ptr = slow_ptr
@@ -47,10 +50,11 @@ class LinkedList:
             if ptr.next == current:
                 ptr.next = None
                 return
-            
+
             current = current.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(9)
     llist.insert_at_front(8)

@@ -2,8 +2,9 @@
 class Node:
     # a function to initialize the node object
     def __init__(self, data):
-        self.data = data # the assigned data
-        self.next = None # the next node
+        self.data = data  # the assigned data
+        self.next = None  # the next node
+
 
 # The Linked List Class
 class LinkedList:

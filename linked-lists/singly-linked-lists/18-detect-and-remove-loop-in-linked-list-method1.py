@@ -1,8 +1,11 @@
 import time
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -36,7 +39,8 @@ class LinkedList:
             previous = current
             current = current.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(11)
     llist.insert_at_front(10)
@@ -49,7 +53,9 @@ if __name__ == '__main__':
     llist.insert_at_front(3)
     llist.insert_at_front(2)
     llist.insert_at_front(1)
-    llist.head.next.next.next.next.next.next.next.next.next.next.next = llist.head.next.next
+    llist.head.next.next.next.next.next.next.next.next.next.next.next = (
+        llist.head.next.next
+    )
     print(llist.head.data, end=" - ")
     print(llist.head.next.data, end=" - ")
     print(llist.head.next.next.data, end=" - ")
@@ -61,7 +67,6 @@ if __name__ == '__main__':
     print(llist.head.next.next.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.next.next.next.data)
-
 
     slow = llist.detect_and_remove_loop()
     llist.print_list()

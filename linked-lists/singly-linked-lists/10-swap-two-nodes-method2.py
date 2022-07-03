@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -18,7 +19,7 @@ class LinkedList:
     def swap_nodes(self, x, y):
         if x == y:
             return
-        
+
         head_ref = self.head
         prev_x = None
         prev_y = None
@@ -53,7 +54,7 @@ class LinkedList:
         # if neither are the head
         else:
             # if we have both nodes,
-            # swap next of current (next of target's previous node) 
+            # swap next of current (next of target's previous node)
             temp = prev_x.next
             prev_x.next = prev_y.next
             prev_y.next = temp
@@ -68,7 +69,8 @@ class LinkedList:
             print(current.data, end=" - ")
             current = current.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(4)
     llist.insert_at_front(3)

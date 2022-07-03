@@ -4,6 +4,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -34,7 +35,7 @@ class LinkedList:
         # if the key is not present in the linked list
         if current == None:
             return
-        
+
         # Unlink the node from the linkedlist
         previous.next = current.next
         current = None
@@ -45,7 +46,8 @@ class LinkedList:
             print(current.data, end=" - ")
             current = current.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(4)
     llist.insert_at_front(3)

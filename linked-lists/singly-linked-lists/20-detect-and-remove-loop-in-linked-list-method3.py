@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -33,7 +34,7 @@ class LinkedList:
                 # removing the loop
                 self.remove_loop(slow_ptr)
                 return
-    
+
     def remove_loop(self, slow_ptr):
         # first we count the number of nodes in the loop
         count = 1
@@ -51,14 +52,15 @@ class LinkedList:
         while ptr1 != ptr2:
             ptr1 = ptr1.next
             ptr2 = ptr2.next
-        
+
         # Now moving the second pointer to the end
         while ptr2.next != ptr1:
             ptr2 = ptr2.next
-        
+
         ptr2.next = None
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(11)
     llist.insert_at_front(10)
@@ -71,7 +73,9 @@ if __name__ == '__main__':
     llist.insert_at_front(3)
     llist.insert_at_front(2)
     llist.insert_at_front(1)
-    llist.head.next.next.next.next.next.next.next.next.next.next.next = llist.head.next.next
+    llist.head.next.next.next.next.next.next.next.next.next.next.next = (
+        llist.head.next.next
+    )
     print(llist.head.data, end=" - ")
     print(llist.head.next.data, end=" - ")
     print(llist.head.next.next.data, end=" - ")
@@ -83,7 +87,6 @@ if __name__ == '__main__':
     print(llist.head.next.next.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.next.next.next.data)
-
 
     slow = llist.detect_and_remove_loop()
     llist.print_list()

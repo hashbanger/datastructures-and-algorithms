@@ -4,6 +4,7 @@ class Node:
         self.next = None
         self.prev = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -18,10 +19,10 @@ class LinkedList:
         # if head is not none
         if self.head != None:
             self.head.prev = new_node
-        
+
         # changing the head
         self.head = new_node
-    
+
     def insert_at_end(self, new_data):
         # creating new node
         new_node = Node(new_data)
@@ -33,7 +34,7 @@ class LinkedList:
 
         # iterating the last node
         ptr = self.head
-        while (ptr.next != None):
+        while ptr.next != None:
             ptr = ptr.next
 
         ptr.next = new_node
@@ -43,10 +44,10 @@ class LinkedList:
         if prev_node is None:
             print("the given previous node cannot be NULL")
             return
-        
+
         new_node = Node(new_data)
         ptr = self.head
-        while (ptr != None):
+        while ptr != None:
             if ptr.data == prev_node:
                 new_node.next = ptr.next
                 ptr.next = new_node
@@ -61,7 +62,7 @@ class LinkedList:
         if next_node is None:
             print("the given next node cannot be NULL")
             return
-        
+
         new_node = Node(new_data)
         ptr = self.head
         if ptr.data == next_node:
@@ -70,7 +71,7 @@ class LinkedList:
             self.head = new_node
             return
 
-        while (ptr != None):
+        while ptr != None:
             if ptr.next.data == next_node:
                 new_node.next = ptr.next
                 ptr.next = new_node
@@ -84,10 +85,11 @@ class LinkedList:
     def print_list(self):
         ptr = self.head
         while ptr:
-            print(ptr.data, end = ' - ')
+            print(ptr.data, end=" - ")
             ptr = ptr.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist = LinkedList()
     llist.insert_at_front(4)
     llist.insert_at_front(3)

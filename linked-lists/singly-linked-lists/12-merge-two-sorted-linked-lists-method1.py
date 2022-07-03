@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -18,6 +19,7 @@ class LinkedList:
         while current:
             print(current.data, end=" - ")
             current = current.next
+
 
 # merging two sorted linked lists
 def merge_linked_lists(head_a, head_b):
@@ -45,7 +47,8 @@ def merge_linked_lists(head_a, head_b):
     # return the node next to head
     return dummy_node.next
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     llist_a = LinkedList()
     llist_a.insert_at_front(15)
     llist_a.insert_at_front(10)
