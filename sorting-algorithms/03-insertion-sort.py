@@ -1,5 +1,5 @@
 # Insertion Sort
-# Time Complexity: O(N^2)
+# Time Complexity: O(n^2)
 # Auxilary Space: O(1)
 # Efficient for small data values
 # Useful for arrays which are already partially sorted

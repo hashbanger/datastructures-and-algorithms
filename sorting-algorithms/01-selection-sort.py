@@ -1,5 +1,5 @@
 # Selection sort
-# Time Complexity: O(N^2)
+# Time Complexity: O(n^2)
 # Auxilary Space: O(1) only extra temporary variable is used for swapping
 def selection_sort(array):
 

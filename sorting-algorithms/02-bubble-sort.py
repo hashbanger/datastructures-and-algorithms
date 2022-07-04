@@ -1,6 +1,5 @@
 # Bubble Sort
-# Time Complexity: O(N^2)
-# Auxilary Space:
+# Time Complexity: O(n^2)
 # Suitable for large datasets
 def bubble_sort(array):
 
