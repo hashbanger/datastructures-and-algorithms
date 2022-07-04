@@ -4,7 +4,7 @@ def linear_search(array, num):
     for i in range(len(array)):
         if array[i] == num:
             return i
-    return None
+    return -1
 
 def linear_search_improved(array, num):
     left = 0
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     print("\nSimple Linear Search")
     result = linear_search(array, num)
-    if result:
+    if result != -1:
         print("Number found at position:", result + 1)
     else:
         print("Number not found!")
