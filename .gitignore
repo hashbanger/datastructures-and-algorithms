@@ -8,6 +8,7 @@ __pycache__/
 
 # custom additions
 .DS_Store
+.ipynb_checkpoints/
 
 # Distribution / packaging
 .Python
