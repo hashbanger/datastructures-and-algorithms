@@ -18,7 +18,7 @@ def bubble_sort_optimized(array):
     
     # number of time to run the logic
     for _ in range(len(array)-1):
-        swapped = True
+        swapped = False
         # keep swapping adjacent elements till the end of array
         for i in range(len(array)-1):
             if array[i] > array[i+1]:
