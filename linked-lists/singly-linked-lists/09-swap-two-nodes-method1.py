@@ -37,6 +37,9 @@ class LinkedList:
         if current_x == None or current_y == None:
             return
 
+        # the method is to swap the previous values first
+        # then swap the next node chains
+        
         # if x is not the head of the list
         if previous_x != None:
             previous_x.next = current_y
