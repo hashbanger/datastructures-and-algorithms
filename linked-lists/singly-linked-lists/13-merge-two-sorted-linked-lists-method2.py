@@ -22,6 +22,7 @@ class LinkedList:
 
 # In place merge of two sorted linked lists
 def merge_linked_lists(head_a, head_b):
+
     # if any of the list is null return the other
     if head_a is None:
         return head_b
@@ -33,17 +34,22 @@ def merge_linked_lists(head_a, head_b):
         temp = head_a
         head_a = head_b
         head_b = temp
-    # keeping the head
+
+    # since the lowest one would be the returning head 
+    # and head_a is ensured to be lowest, so we store it already.
     result = head_a
+    
     # we keep moving until we run out of both
     while (head_a != None) and (head_b != None):
         ptr = None
+
         # we keep moving until we find lower values
         # else we switch the heads and connect the ptr to the next lower
         while (head_a != None) and (head_a.data <= head_b.data):
             ptr = head_a
             head_a = head_a.next
         ptr.next = head_b
+        
         # swapping the heads
         temp = head_a
         head_a = head_b
