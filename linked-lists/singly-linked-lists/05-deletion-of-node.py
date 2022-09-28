@@ -18,12 +18,13 @@ class LinkedList:
         # store head node
         current = self.head
 
-        # if head node itself hods the key to be deleted
+        # if head node itself holds the key to be deleted
         if current is not None:
             if current.data == key:
                 self.head = current.next
                 current = None
                 return
+                
         # searching for the key to be deleted
         # tracking the previous of the key to be deleted as well
         while current is not None:
