@@ -5,7 +5,6 @@ class Node:
         self.data = data  # the assigned data
         self.next = None  # the next node
 
-
 # The Linked List Class
 class LinkedList:
     # Function to initialize the Linked List
