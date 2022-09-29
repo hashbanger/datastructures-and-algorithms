@@ -85,6 +85,7 @@ if __name__ == "__main__":
     print(llist.head.next.next.data, end=" - ")
     print(llist.head.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.data, end=" - ")
+    print(llist.head.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.data, end=" - ")
