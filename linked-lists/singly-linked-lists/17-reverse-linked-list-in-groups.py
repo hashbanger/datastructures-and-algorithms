@@ -1,7 +1,14 @@
+# Rather than reversing the entire linked list
+# we want to reverse the groups of every k(group) nodes
+# Input: 1->2->3->4->5->6->7->8->NULL, K = 3
+# Output: 3->2->1->6->5->4->8->7->NULL
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -23,6 +30,7 @@ class LinkedList:
     def reverse_in_groups(self, head, group_size):
         if head is None:
             return None
+
         current = head
         prev_node = None
         next_node = None
@@ -42,15 +50,16 @@ class LinkedList:
 
 if __name__ == "__main__":
     llist = LinkedList()
-    llist.insert_at_front(24)
-    llist.insert_at_front(15)
-    llist.insert_at_front(10)
-    llist.insert_at_front(29)
-    llist.insert_at_front(20)
+    llist.insert_at_front(8)
+    llist.insert_at_front(7)
+    llist.insert_at_front(6)
+    llist.insert_at_front(5)
+    llist.insert_at_front(4)
     llist.insert_at_front(3)
     llist.insert_at_front(2)
+    llist.insert_at_front(1)
     print("Before Sub-Reverse: ")
     llist.print_list()
-    llist.head = llist.reverse_in_groups(llist.head, 2)
+    llist.head = llist.reverse_in_groups(llist.head, 3)
     print("\nAfter Sub-Reverse: ")
     llist.print_list()
