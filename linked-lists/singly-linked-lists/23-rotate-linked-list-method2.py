@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -27,6 +28,7 @@ class LinkedList:
         current = self.head
 
         counter = 1
+
         # moving to kth node
         while counter < k and current != None:
             current = current.next
