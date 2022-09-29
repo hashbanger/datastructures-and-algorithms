@@ -6,6 +6,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -23,21 +24,24 @@ class LinkedList:
             current = current.next
 
     def detect_and_remove_loop(self):
-        # DETECTING THE LOOP
         slow_ptr = self.head
         fast_ptr = self.head
-        # print(slow_ptr.data, fast_ptr.data)
-        # if the slow and fast pointers are not null
+
+        # we will iterate the list with slow and fast pointers
+        # if the meet each other would mean there's a loop somewhere.
         while (slow_ptr != None) and (fast_ptr != None) and (fast_ptr.next != None):
             slow_ptr = slow_ptr.next
             fast_ptr = fast_ptr.next.next
+
             # if they are on the same node then there's a loop
             if slow_ptr.data == fast_ptr.data:
+
                 # removing the loop
                 # setting the slow to head and keep fast at the current node
                 slow_ptr = self.head
                 while slow_ptr.next != fast_ptr.next:
-                    # moving them at same pace
+
+                    # * moving them at same pace
                     slow_ptr = slow_ptr.next
                     fast_ptr = fast_ptr.next
 
@@ -60,11 +64,13 @@ if __name__ == "__main__":
     llist.head.next.next.next.next.next.next.next.next.next.next.next = (
         llist.head.next.next
     )
+
     print(llist.head.data, end=" - ")
     print(llist.head.next.data, end=" - ")
     print(llist.head.next.next.data, end=" - ")
     print(llist.head.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.data, end=" - ")
+    print(llist.head.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.data, end=" - ")
