@@ -55,12 +55,18 @@ class LinkedList:
 
 if __name__ == "__main__":
     llist = LinkedList()
-    llist.insert_at_front(60)
-    llist.insert_at_front(50)
-    llist.insert_at_front(40)
-    llist.insert_at_front(30)
-    llist.insert_at_front(20)
+    llist.insert_at_front(11)
     llist.insert_at_front(10)
+    llist.insert_at_front(9)
+    llist.insert_at_front(8)
+    llist.insert_at_front(7)
+    llist.insert_at_front(6)
+    llist.insert_at_front(5)
+    llist.insert_at_front(4)
+    llist.insert_at_front(3)
+    llist.insert_at_front(2)
+    llist.insert_at_front(1)
+
     k = 4
     print(f"Before Rotation by {k}: ")
     llist.print_list()
