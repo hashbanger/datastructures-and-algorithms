@@ -32,15 +32,14 @@ class LinkedList:
             current = current.next
         current.next = self.head
 
-        # reset the current to the head
-        current = self.head
-
-        # move it to previous node to new head
-        for _ in range(k - 1):
+        # move it to k nodes ahead (previous to new supposed head)
+        for _ in range(k):
             current = current.next
 
-        # change the connections
+        # then assign the new head
         self.head = current.next
+
+        # and break the connection
         current.next = None
 
         return self.head
