@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -40,15 +41,20 @@ class LinkedList:
     def merge_sort(self, head):
         if head is None or head.next is None:
             return head
+
         # getting the middle element
         middle = self.get_middle(head)
+
         # creating second part
         next_to_middle = middle.next
+
         # disconnecting second part
         middle.next = None
+
         # applying merge sort to the left and right part
         left = self.merge_sort(head)
         right = self.merge_sort(next_to_middle)
+
         # merging the left and right
         sorted_list = self.merge(left, right)
         return sorted_list
