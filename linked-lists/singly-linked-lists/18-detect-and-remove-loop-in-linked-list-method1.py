@@ -6,6 +6,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -27,6 +28,8 @@ class LinkedList:
         current = self.head
         previous = None
 
+        # we will iterate till we find the duplicate node and keep track of previous nodes
+        # soon as we find the repeated node, we will connect the previous to null.
         visited_nodes = set()
         while current is not None:
             if current in visited_nodes:
@@ -52,20 +55,28 @@ if __name__ == "__main__":
     llist.insert_at_front(3)
     llist.insert_at_front(2)
     llist.insert_at_front(1)
+
+    # connecting the loop from node 11 to node 3
     llist.head.next.next.next.next.next.next.next.next.next.next.next = (
         llist.head.next.next
     )
-    print(llist.head.data, end=" - ")
-    print(llist.head.next.data, end=" - ")
-    print(llist.head.next.next.data, end=" - ")
-    print(llist.head.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.next.next.next.next.data, end=" - ")
-    print(llist.head.next.next.next.next.next.next.next.next.next.next.next.data)
 
+    # not run into an infinite loop,
+    # we would print the list like this.
+    visited_nodes = set()
+    current = llist.head
+    while current.next != None:
+
+        # checking if we have visited the nodes (! not by the data)
+        if current in visited_nodes:
+            print(current.data, end=" - ")
+            print(f"Node {current.data} already visited! halting...")
+            break
+
+        print(current.data, end=" - ")
+        visited_nodes.add(current)
+        current = current.next
+
+    # removing the loop
     slow = llist.detect_and_remove_loop()
     llist.print_list()
