@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -20,16 +21,18 @@ class LinkedList:
             current = current.next
 
     def detect_and_remove_loop(self):
-        # DETECTING THE LOOP
         slow_ptr = self.head
         fast_ptr = self.head
-        # print(slow_ptr.data, fast_ptr.data)
-        # if the slow and fast pointers are not null
+
+        # we will iterate the list with slow and fast pointers
+        # if the meet each other would mean there's a loop somewhere.
         while (slow_ptr != None) and (fast_ptr != None) and (fast_ptr.next != None):
             slow_ptr = slow_ptr.next
             fast_ptr = fast_ptr.next.next
+
             # if they are on the same node then there's a loop
             if slow_ptr.data == fast_ptr.data:
+
                 # removing the loop
                 self.remove_loop(slow_ptr)
                 return
@@ -47,15 +50,16 @@ class LinkedList:
         ptr2 = self.head
         for _ in range(count):
             ptr2 = ptr2.next
-        # Now we keep moving until they are equal
+
+        # Now we keep moving until they are equal, so we reach the repeated node
         while ptr1 != ptr2:
             ptr1 = ptr1.next
             ptr2 = ptr2.next
 
-        # Now moving the second pointer to the end
+        # Now we circle back the second pointer to the previous of repeated node
+        # then disconnect it from the loop
         while ptr2.next != ptr1:
             ptr2 = ptr2.next
-
         ptr2.next = None
 
 
@@ -75,6 +79,7 @@ if __name__ == "__main__":
     llist.head.next.next.next.next.next.next.next.next.next.next.next = (
         llist.head.next.next
     )
+
     print(llist.head.data, end=" - ")
     print(llist.head.next.data, end=" - ")
     print(llist.head.next.next.data, end=" - ")
@@ -87,5 +92,5 @@ if __name__ == "__main__":
     print(llist.head.next.next.next.next.next.next.next.next.next.next.data, end=" - ")
     print(llist.head.next.next.next.next.next.next.next.next.next.next.next.data)
 
-    slow = llist.detect_and_remove_loop()
+    llist.detect_and_remove_loop()
     llist.print_list()
