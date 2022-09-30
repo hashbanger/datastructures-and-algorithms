@@ -59,6 +59,7 @@ class LinkedList:
         if fast_ptr.next.next == self.head:
             fast_ptr = fast_ptr.next
 
+        # changing the heads and tails of both the new lists
         llist1.head = self.head
         llist2.head = ptr
         llist1.tail = middle
@@ -91,13 +92,17 @@ if __name__ == "__main__":
     llist.insert_at_front(2)
     llist.insert_at_front(1)
     llist.insert_at_front(0)
+
     # traversing the list
     print("First Linked List")
     llist.print_list()
 
+    # creating two new lists to get the splits
     llist1 = LinkedList()
     llist2 = LinkedList()
+
     llist.split_into_two(llist1, llist2)
     print("\nSplit Linked Lists")
+
     llist1.print_list()
     llist2.print_list()
