@@ -48,10 +48,13 @@ class LinkedList:
         new_node = Node(new_data)
         ptr = self.head
         while ptr != None:
+
+            # adding connections with new node
             if ptr.data == prev_node:
                 new_node.next = ptr.next
                 ptr.next = new_node
 
+                # changing the previous of the next node
                 if new_node.next != None:
                     new_node.next.prev = new_node
                 break
@@ -71,7 +74,7 @@ class LinkedList:
             self.head = new_node
             return
 
-        while ptr != None:
+        while (ptr != None) and (ptr.next != None):
             if ptr.next.data == next_node:
                 new_node.next = ptr.next
                 ptr.next = new_node
@@ -104,4 +107,5 @@ if __name__ == "__main__":
     llist.insert_at_end(20)
     llist.insert_before(15, 12)
     llist.insert_before(2, 1)
+    llist.insert_before(18, 17)
     llist.print_list()
