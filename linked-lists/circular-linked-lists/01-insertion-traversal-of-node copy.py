@@ -45,12 +45,12 @@ class LinkedList:
         self.tail = new_node
 
     def insert_after(self, previous_node, new_data):
-        # if None return None
         if self.head == None:
             return None
 
         ptr = self.head
         while ptr != None:
+
             # if node found, change connections
             if ptr.data == previous_node:
                 new_node = Node(new_data)
@@ -67,7 +67,7 @@ class LinkedList:
 
             # if it circles back, node not found
             if ptr.next == self.head:
-                print(previous_node, " not present in the list")
+                print(f"{previous_node} not present in the list")
                 break
 
             ptr = ptr.next
