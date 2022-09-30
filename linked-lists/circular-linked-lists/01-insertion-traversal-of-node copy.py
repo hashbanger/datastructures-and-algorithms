@@ -62,9 +62,7 @@ class LinkedList:
                 # make new node the last node
                 if ptr == self.tail:
                     self.tail = new_node
-                    return
-                else:
-                    return
+                return
 
             # if it circles back, node not found
             if ptr.next == self.head:
