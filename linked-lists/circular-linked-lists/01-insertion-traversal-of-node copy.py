@@ -10,6 +10,7 @@ class LinkedList:
         self.tail = None
 
     def insert_in_empty(self, new_data):
+
         # if not empty return the head
         if self.head != None:
             return self.head
