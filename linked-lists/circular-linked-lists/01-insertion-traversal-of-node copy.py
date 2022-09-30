@@ -37,7 +37,7 @@ class LinkedList:
 
     def insert_at_end(self, new_data):
         if self.head == None:
-            return serlf.insert_in_empty(new_data)
+            return self.insert_in_empty(new_data)
 
         # creating and connecting
         new_node = Node(new_data)
@@ -90,7 +90,7 @@ class LinkedList:
 if __name__ == "__main__":
     llist = LinkedList()
     # inserting 5 as the head
-    llist.insert_in_empty(5)
+    llist.insert_at_front(5)
     # # inserting 3 before 5
     llist.insert_at_front(3)
     # # inserting 2 before 3
