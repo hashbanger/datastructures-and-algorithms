@@ -34,7 +34,7 @@ class ConversionStack:
     def peek(self):
         return self.elements[self.top]
 
-    # to check whether the element is a operand or operator
+    # to check whether the element is a operand or not
     def is_operand(self, ch):
         return ch.isdigit()
 
@@ -42,9 +42,12 @@ class ConversionStack:
 
         for ch in expression:
 
+            # if the item is an operand we push it to stack
             if self.is_operand(ch):
                 self.push(ch)
 
+            # if we encounter an operator, we evaluate using last two operands
+            # then push it to the stack
             else:
                 value_2 = self.pop()
                 value_1 = self.pop()
