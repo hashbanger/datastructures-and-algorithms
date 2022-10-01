@@ -42,9 +42,10 @@ class ConversionStack:
 
     # to check whether the element is a operand or operator
     def is_operand(self, ch):
-        return ch.isalpha()
+        return ch.isalpha() or ch.isdigit()
 
     def input_precedence_greater(self, opr):
+
         # first to compare if the next operator in the expression
         # has higher precedence or not
         try:
@@ -60,7 +61,7 @@ class ConversionStack:
         except KeyError:
             return True
 
-    def infix_to_postfil(self, expression):
+    def infix_to_postfix(self, expression):
         for ch in expression:
 
             # Case1: add the output if it's an operand
@@ -108,9 +109,11 @@ class ConversionStack:
 
 if __name__ == "__main__":
     infix_expression = "a+b*(c^d-e)^(f+g*h)-i"
+    # infix_expression = "2*(2+3)+4"
+
     print(f"Infix Expression {infix_expression}")
 
     conversion_stack = ConversionStack(size=len(infix_expression))
-    postfix_expression = conversion_stack.infix_to_postfil(infix_expression)
+    postfix_expression = conversion_stack.infix_to_postfix(infix_expression)
 
     print(f"Postfix Expression {postfix_expression}")
