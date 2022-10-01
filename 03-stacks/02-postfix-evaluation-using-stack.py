@@ -1,4 +1,4 @@
-# implementation of a stack using python
+# evaluating a postfix expression uisnga stack
 class ConversionStack:
     def __init__(self, size):
         self.top = -1

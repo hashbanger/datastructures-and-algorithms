@@ -1,4 +1,4 @@
-# implementation of a stack using python
+# converting an infix expression to postfix using a stack
 class ConversionStack:
     def __init__(self, size):
         self.top = -1
