@@ -32,6 +32,8 @@ class ConversionStack:
             print("Can't pop. Stack underflow!")
 
     def peek(self):
+        if self.top == -1:
+            return None
         return self.elements[self.top]
 
     # to check whether the element is a operand or not

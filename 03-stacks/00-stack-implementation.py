@@ -34,6 +34,8 @@ class Stack:
             print("Can't pop. Stack underflow!")
 
     def peek(self):
+        if self.top == -1:
+            return None
         print(f"Top element {self.elements[self.top]}")
 
 

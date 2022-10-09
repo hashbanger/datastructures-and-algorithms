@@ -34,6 +34,7 @@ class BalanceStack:
     def peek(self):
         if self.top == -1:
             return None
+        return self.elements[self.top]
 
     def check_balanced_parentheses(self, input_string):
         if not input_string:

@@ -32,6 +32,8 @@ class Stack:
             print("Can't pop. Stack underflow!")
 
     def peek(self):
+        if self.top == -1:
+            return None
         return self.elements[self.top]
 
     def reverse_string(self, input_string):
