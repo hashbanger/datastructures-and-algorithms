@@ -36,26 +36,27 @@ class Stack:
             return None
         return self.elements[self.top]
 
-    def reverse_string(self, input_string):
 
-        # first we push all the elements to the stack
-        for ch in input_string:
-            self.push(ch)
+def reverse_string(input_string):
+    stack = Stack(len(input_string))
 
-        # empty the string, we would use it to store the results
-        input_string = ""
+    # first we push all the elements to the stack
+    for ch in input_string:
+        stack.push(ch)
 
-        # popping the elements are adding them back to the string
-        while self.top != -1:
-            input_string += self.pop()
+    # empty the string, we would use it to store the results
+    input_string = ""
 
-        return input_string
+    # popping the elements are adding them back to the string
+    while stack.peek():
+        input_string += stack.pop()
+
+    return input_string
 
 
 if __name__ == "__main__":
     input_string = "cogito ergo sum"
     print(f"Input String: {input_string}")
 
-    stack = Stack(size=len(input_string))
-    reverse_string = stack.reverse_string(input_string)
+    reverse_string = reverse_string(input_string)
     print(f"Reverse String: {reverse_string}")
