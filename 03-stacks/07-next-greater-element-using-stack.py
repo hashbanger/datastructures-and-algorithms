@@ -67,7 +67,7 @@ def next_greater_element_method2(array):
         next_item = array[i]
 
         # if the stack is not empty then
-        if stack.peek():
+        if stack.peek() is not None:
 
             # pop one element from the stack
             element = stack.pop()
@@ -76,7 +76,7 @@ def next_greater_element_method2(array):
             # keep popping and printing the pairs
             while next_item > element:
                 print(f"{element} -- {next_item}")
-                if not stack.peek():
+                if stack.peek() is None:
                     break
                 element = stack.pop()
 
@@ -88,7 +88,7 @@ def next_greater_element_method2(array):
         stack.push(next_item)
 
     # if the stack is not empty then pop all and pair with -1
-    while stack.peek():
+    while stack.peek() is not None:
         element = stack.pop()
         next_item = -1
         print(f"{element} -- {next_item}")

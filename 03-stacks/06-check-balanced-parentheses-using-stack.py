@@ -57,7 +57,7 @@ def check_balanced_parentheses(input_string):
             elif (ch == "]") and (popped != "["):
                 return False
 
-    if stack.peek():
+    if stack.peek() is not None:
         return False
     return True
 
