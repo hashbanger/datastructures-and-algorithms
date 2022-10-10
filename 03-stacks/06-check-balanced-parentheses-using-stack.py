@@ -1,5 +1,5 @@
-# implementation of a stack using python
-class BalanceStack:
+# checking for balanced parenthese in a string using stack
+class Stack:
     def __init__(self, size):
         self.top = -1
         self.size = size
@@ -17,7 +17,7 @@ class BalanceStack:
             # increasing the top to one position up
             self.top += 1
         else:
-            print("Can't push. Stack overflow!")
+            return False
 
     def pop(self):
         if self.top != -1:
@@ -29,37 +29,46 @@ class BalanceStack:
             self.top -= 1
             return item
         else:
-            print("Can't pop. Stack underflow!")
+            return False
 
     def peek(self):
         if self.top == -1:
             return None
         return self.elements[self.top]
 
-    def check_balanced_parentheses(self, input_string):
-        if not input_string:
-            return True
 
-        for ch in input_string:
-            if ch in ["{", "(", "["]:
-                self.push(ch)
-            else:
-                popped = self.pop()
+def check_balanced_parentheses(input_string):
+    # initializing the stack to use
+    stack = Stack(10)
 
-                if (ch == "}") and (popped != "{"):
-                    return False
-                elif (ch == ")") and (popped != "("):
-                    return False
-                elif (ch == "]") and (popped != "["):
-                    return False
-
-        if self.peek():
-            return False
+    if not input_string:
         return True
+
+    for ch in input_string:
+        if ch in ["{", "(", "["]:
+            stack.push(ch)
+        else:
+            popped = stack.pop()
+
+            if (ch == "}") and (popped != "{"):
+                return False
+            elif (ch == ")") and (popped != "("):
+                return False
+            elif (ch == "]") and (popped != "["):
+                return False
+
+    if stack.peek():
+        return False
+    return True
 
 
 if __name__ == "__main__":
-    stk = BalanceStack(10)
+    input_string = "[]{}((([[[]]])))"
+    result = check_balanced_parentheses(input_string)
+    print(f"Input String {input_string}")
+    print(f"Result {result}")
 
-    result = stk.check_balanced_parentheses("[]}[[[]]]")
-    print(result)
+    input_string = "[]}[[[]]]"
+    result = check_balanced_parentheses(input_string)
+    print(f"Input String {input_string}")
+    print(f"Result {result}")
