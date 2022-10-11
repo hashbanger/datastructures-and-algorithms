@@ -56,18 +56,15 @@ class SpecialStack:
             # increasing the top to one position up
             self.top += 1
 
-            # push if the stack is empty or
+            # if the stack is empty then push to the stack
             if self.min_stack.peek() is None:
                 self.min_stack.push(item)
+
             else:
 
-                # if the stack is not empty and item is smaller than current top
+                # otherwise if the item is smaller only then push to stack
                 if item <= self.min_stack.peek():
                     self.min_stack.push(item)
-
-                # otherwise push the current top again
-                else:
-                    self.min_stack.push(self.min_stack.peek())
         else:
             print("Can't push. Stack overflow!")
             return False
@@ -77,7 +74,10 @@ class SpecialStack:
 
             # popping the last element from the stacks
             item = self.elements.pop()
-            min_item = self.min_stack.pop()
+
+            # if the popped item is the same as current min then pop it
+            if item == self.min_stack.peek():
+                min_item = self.min_stack.pop()
             print(f"popped {item}")
 
             self.top -= 1
