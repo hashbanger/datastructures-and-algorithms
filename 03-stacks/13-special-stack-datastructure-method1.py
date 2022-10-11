@@ -56,18 +56,14 @@ class SpecialStack:
             # increasing the top to one position up
             self.top += 1
 
-            # push if the stack is empty or
-            if self.min_stack.peek() is None:
+            # push if the stack is empty or if the item is smaller than current minimum
+            if (self.min_stack.peek() is None) or (item <= self.min_stack.peek()):
                 self.min_stack.push(item)
+
+            # otherwise push the current minimum again
             else:
+                self.min_stack.push(self.min_stack.peek())
 
-                # if the stack is not empty and item is smaller than current top
-                if item <= self.min_stack.peek():
-                    self.min_stack.push(item)
-
-                # otherwise push the current top again
-                else:
-                    self.min_stack.push(self.min_stack.peek())
         else:
             print("Can't push. Stack overflow!")
             return False
@@ -114,7 +110,13 @@ if __name__ == "__main__":
     special_stack.push(3)
     special_stack.get_min()
 
-    special_stack.push(2)
+    special_stack.push(-2)
+    special_stack.get_min()
+
+    special_stack.push(12)
+    special_stack.get_min()
+
+    special_stack.pop()
     special_stack.get_min()
 
     special_stack.pop()

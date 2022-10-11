@@ -57,14 +57,9 @@ class SpecialStack:
             self.top += 1
 
             # if the stack is empty then push to the stack
-            if self.min_stack.peek() is None:
+            if (self.min_stack.peek() is None) or (item <= self.min_stack.peek()):
                 self.min_stack.push(item)
 
-            else:
-
-                # otherwise if the item is smaller only then push to stack
-                if item <= self.min_stack.peek():
-                    self.min_stack.push(item)
         else:
             print("Can't push. Stack overflow!")
             return False
@@ -114,7 +109,13 @@ if __name__ == "__main__":
     special_stack.push(3)
     special_stack.get_min()
 
-    special_stack.push(2)
+    special_stack.push(-2)
+    special_stack.get_min()
+
+    special_stack.push(12)
+    special_stack.get_min()
+
+    special_stack.pop()
     special_stack.get_min()
 
     special_stack.pop()
