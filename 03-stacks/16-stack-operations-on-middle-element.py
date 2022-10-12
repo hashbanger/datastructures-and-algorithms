@@ -1,8 +1,6 @@
 # We want to implement a stack that supports the following operations in O(N) complexity.
 # push, pop, find the middle element, delete the middle element.
 # We will use a doubly linked list to implement this stack.
-
-
 class Node:
     def __init__(self, data):
         self.data = data
