@@ -133,8 +133,6 @@ class MiddleStack:
         return None
 
     def delete_middle(self):
-
-        # if the middle node exists then
         if self.get_middle() is not None:
             print("Deleting middle element.")
 
