@@ -93,7 +93,6 @@ class MiddleStack:
     def __init__(self, size):
         self.size = size
         self.top_count = -1
-        self.middle = None
         self.elements = LinkedList()
 
     def push(self, item):
