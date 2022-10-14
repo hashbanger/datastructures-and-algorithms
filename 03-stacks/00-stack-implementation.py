@@ -6,10 +6,13 @@ class Stack:
         self.elements = []
 
     def is_empty(self):
-        return 1 if self.top == -1 else False
+        return self.top == -1
+
+    def is_full(self):
+        return self.top == self.size - 1
 
     def push(self, item):
-        if self.top < self.size - 1:
+        if not self.is_full():
 
             # adding the element to the stack
             self.elements.append(item)
@@ -18,10 +21,10 @@ class Stack:
             # increasing the top to one position up
             self.top += 1
         else:
-            print("Can't push. Stack overflow!")
+            print("can't push. stack overflow!")
 
     def pop(self):
-        if self.top != -1:
+        if not self.is_empty():
 
             # popping the last element from the stack
             item = self.elements.pop()
@@ -30,13 +33,16 @@ class Stack:
             # decreasing the top to one position down
             self.top -= 1
             return item
-        else:
-            print("Can't pop. Stack underflow!")
+
+        print("can't pop. stack underflow!")
+        return
 
     def peek(self):
-        if self.top == -1:
-            return None
-        print(f"Top element {self.elements[self.top]}")
+        if not self.is_empty():
+            print(f"Top element {self.elements[self.top]}")
+            return self.elements[self.top]
+        print("stack underflow!")
+        return
 
 
 if __name__ == "__main__":
