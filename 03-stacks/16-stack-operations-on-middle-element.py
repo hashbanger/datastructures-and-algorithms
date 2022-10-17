@@ -95,8 +95,14 @@ class MiddleStack:
         self.top_count = -1
         self.elements = LinkedList()
 
+    def is_full(self):
+        return self.top_count == (self.size - 1)
+
+    def is_empty(self):
+        return self.top_count == -1
+
     def push(self, item):
-        if self.top_count < self.size:
+        if not self.is_full():
             print(f"pushed {item}")
 
             # we push the values to the front of the linked list
@@ -109,7 +115,7 @@ class MiddleStack:
             return None
 
     def pop(self):
-        if self.top_count > -1:
+        if not self.is_empty():
 
             # we delete the node from the front of the linked list
             item = self.elements.delete_node(
@@ -123,7 +129,7 @@ class MiddleStack:
             print(f"Stack underflow!")
 
     def get_middle(self):
-        if self.top_count > -1:
+        if not self.is_empty():
             print(f"\nMiddle element in stack {self.elements.get_middle_node()}")
 
             # get the middle node from the linked list
@@ -147,7 +153,7 @@ class MiddleStack:
         return None
 
     def peek(self):
-        if self.top_count > -1:
+        if not self.is_empty():
             print(f"Top element {self.elements.head.data}")
             return self.elements.head.data
 
@@ -155,7 +161,7 @@ class MiddleStack:
         return None
 
     def peek_all(self):
-        if self.top_count > -1:
+        if not self.is_empty():
             print("\nAll elements in stack:")
             self.elements.print_list()
             return

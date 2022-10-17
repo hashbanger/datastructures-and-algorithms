@@ -12,10 +12,13 @@ class ConversionStack:
         self.output = []
 
     def is_empty(self):
-        return True if self.top == -1 else False
+        return self.top == -1
+
+    def is_full(self):
+        return self.top == (self.size - 1)
 
     def push(self, item):
-        if self.top < self.size - 1:
+        if not self.is_full():
 
             # adding the element to the stack
             self.elements.append(item)
@@ -26,7 +29,7 @@ class ConversionStack:
             print("Can't push. Stack overflow!")
 
     def pop(self):
-        if self.top != -1:
+        if not self.is_empty():
 
             # popping the last element from the stack
             item = self.elements.pop()
@@ -38,9 +41,10 @@ class ConversionStack:
             print("Can't pop. Stack underflow!")
 
     def peek(self):
-        if self.top == -1:
-            return None
-        return self.elements[self.top]
+        if not self.is_empty():
+            return self.elements[self.top]
+        print("stack underflow!")
+        return
 
     # to check whether the element is a operand or operator
     def is_operand(self, ch):

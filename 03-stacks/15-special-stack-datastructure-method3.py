@@ -8,8 +8,14 @@ class SpecialStack:
         self.elements = []
         self.min = -1
 
+    def is_empty(self):
+        return self.top == -1
+
+    def is_full(self):
+        return self.top == (self.size - 1)
+
     def push(self, item):
-        if self.top < self.size - 1:
+        if not self.is_full():
 
             # if the stack is empty we just push the values to the stack
             if self.peek() is None:
@@ -33,7 +39,7 @@ class SpecialStack:
             return False
 
     def pop(self):
-        if self.top != -1:
+        if not self.is_empty():
 
             # popping the last element from the stacks
             item = self.elements.pop()
@@ -64,10 +70,11 @@ class SpecialStack:
         return self.min
 
     def peek(self):
-        if self.top == -1:
-            return None
-        return self.elements[self.top]
-        print(f"Top element {self.elements[self.top]}")
+        if not self.is_empty():
+            print(f"Top element {self.elements[self.top]}")
+            return self.elements[self.top]
+        print("stack underflow!")
+        return
 
 
 if __name__ == "__main__":
