@@ -83,6 +83,22 @@ class Dequeue:
         self.count -= 1
         return item
 
+    def peek_front(self):
+        if self.is_empty():
+            print("Queue Underflow!")
+            return
+
+        print(f"Front {self.front.data}")
+        return self.front.data
+
+    def peek_rear(self):
+        if self.is_empty():
+            print("Queue Underflow!")
+            return
+
+        print(f"Rear {self.rear.data}")
+        return self.rear.data
+
     def peek_all(self):
         if self.is_empty():
             print("Queue Underflow")
@@ -109,6 +125,9 @@ if __name__ == "__main__":
 
     dequeue.peek_all()
 
+    dequeue.peek_front()
+    dequeue.peek_rear()
+
     dequeue.delete_from_front()
     dequeue.delete_from_front()
 
@@ -117,6 +136,9 @@ if __name__ == "__main__":
     dequeue.delete_from_rear()
 
     dequeue.peek_all()
+
+    dequeue.peek_front()
+    dequeue.peek_rear()
 
     dequeue.delete_from_rear()
     dequeue.delete_from_rear()
