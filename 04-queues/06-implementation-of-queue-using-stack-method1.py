@@ -82,6 +82,16 @@ class Queue:
 
         return popped
 
+    def peek(self):
+        if self.is_empty():
+            print("Queue Underflow")
+            return
+
+        front = self.stack1.elements[-1]
+
+        print(f"Front: {front}")
+        return front
+
 
 if __name__ == "__main__":
     queue = Queue(10)
@@ -90,12 +100,19 @@ if __name__ == "__main__":
     queue.enqueue(3)
     queue.enqueue(2)
     queue.enqueue(1)
-    print(queue.stack1.elements)
+
+    queue.peek()
+
     queue.dequeue()
-    print(queue.stack1.elements)
+
+    queue.peek()
+
     queue.dequeue()
-    print(queue.stack1.elements)
+
+    queue.peek()
+
     queue.enqueue(6)
-    print(queue.stack1.elements)
+
     queue.dequeue()
-    print(queue.stack1.elements)
+
+    queue.peek()
