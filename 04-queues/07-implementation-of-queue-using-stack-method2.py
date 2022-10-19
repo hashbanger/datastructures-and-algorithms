@@ -1,4 +1,4 @@
-# implementing a queue using stacks with enqueue costly operation
+# implementing a queue using stacks with dequeue costly operation
 class Stack:
     def __init__(self, size):
         self.top = -1
@@ -62,16 +62,6 @@ class Queue:
             return
 
         self.stack1.push(item)
-
-        # while not self.stack1.is_empty():
-        #     popped = self.stack1.pop()
-        #     self.stack2.push(popped)
-
-        # self.stack1.push(item)
-
-        # while not self.stack2.is_empty():
-        #     popped = self.stack2.pop()
-        #     self.stack1.push(popped)
 
         self.count += 1
 
