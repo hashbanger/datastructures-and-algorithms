@@ -61,20 +61,48 @@ class KQueues:
         self.free = front_idx
         return item
 
+    def peek(self, q_num):
+        if self.is_empty(q_num):
+            print(f"Queue {q_num} Underflow!")
+            return
+
+        front = self.elements[self.fronts[q_num]]
+        print(f"Front of Queue-{q_num} {front}")
+
 
 if __name__ == "__main__":
     kqueue = KQueues(3, 8)
     kqueue.enqueue(0, 1)
     kqueue.enqueue(0, 2)
     kqueue.enqueue(0, 3)
+
+    kqueue.peek(0)
+
     kqueue.enqueue(1, 4)
     kqueue.enqueue(1, 5)
+
+    kqueue.peek(1)
+
     kqueue.enqueue(0, 6)
+
+    kqueue.peek(0)
+
     kqueue.enqueue(2, 7)
     kqueue.enqueue(2, 8)
+
+    kqueue.peek(2)
+
     kqueue.dequeue(0)
     kqueue.dequeue(0)
+
+    kqueue.peek(0)
+
     kqueue.enqueue(0, 9)
     kqueue.enqueue(0, 10)
+
+    kqueue.peek(0)
+
     kqueue.dequeue(0)
     kqueue.dequeue(0)
+
+    kqueue.peek(0)
