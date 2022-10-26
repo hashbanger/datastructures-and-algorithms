@@ -13,11 +13,11 @@ A tree whose elements have at most 2 children is called a binary tree. Since eac
 
 ## Types of Binary Trees
 
-- Full Binary Tree - Each node has either two or no children.
-- Complete Binary Tree - All the levels are completely filled except the last level and all the keys in the last level are as left as possible. A complete binary tree doesn't have to be a full binary tree.
-- Perfect Binary Tree - All the internal nodes have two children and all the leaf nodes are at the same level. $(Leaf Nodes = Internal Nodes + 1)$
-- Balanced Binary Tree - A binary tree is balanced if the height of the tree is $O(Log n)$, where n is the number of nodes.
-- Degenerate Tree - Every internal node has one child. Such trees are performance-wise same as linked list. A degenerate or pathological tree is the tree having a single child either left or right.
-- Skewed Binary Tree - A pathological/degenerate tree dominated by the left nodes or the right nodes. Thus, there are two types of skewed binary tree:
+- Full Binary Tree: Each node has either two or no children.
+- Complete Binary Tree: All the levels are completely filled except the last level and all the keys in the last level are as left as possible. A complete binary tree doesn't have to be a full binary tree.
+- Perfect Binary Tree: All the internal nodes have two children and all the leaf nodes are at the same level. $(Leaf Nodes = Internal Nodes + 1)$
+- Balanced Binary Tree: A binary tree is balanced if the height of the tree is $O(Log n)$, where n is the number of nodes.
+- Degenerate Tree: Every internal node has one child. Such trees are performance-wise same as linked list. A degenerate or pathological tree is the tree having a single child either left or right.
+- Skewed Binary Tree: A pathological/degenerate tree dominated by the left nodes or the right nodes. Thus, there are two types of skewed binary tree:
   - Left-Skewed Binary Tree
   - Right-Skewed Binary Tree.
