@@ -4,7 +4,7 @@ A tree whose elements have at most 2 children is called a binary tree. Since eac
 
 ## Properties of binary tree
 
-- Max no. of nodes at level l _(if root level is 0)_ = $2^l$, _where (l is level)_
+- Max no. of nodes at level l = $2^l$, _(if root level is 0)_
 - Max no. of nodes in a binary tree of height h = $2^h - 1 = 2^{h+1} - 1$, _(if root level is 0)_
 - Binary tree with N nodes, min possible height or the min levels is = $Log_2(N+1)$
 - Binary tree with h leaves has levels at least = $|Log_2L|+1$
