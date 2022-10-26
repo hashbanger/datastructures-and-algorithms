@@ -1,4 +1,4 @@
-class Node:
+class BinaryTree:
     def __init__(self, data):
         self.left = None
         self.right = None
@@ -13,9 +13,9 @@ if __name__ == "__main__":
     #      /
     #     4
 
-    btree = Node(1)
+    btree = BinaryTree(1)
 
-    btree.left = Node(2)
-    btree.right = Node(3)
+    btree.left = BinaryTree(2)
+    btree.right = BinaryTree(3)
 
-    btree.left.left = Node(4)
+    btree.left.left = BinaryTree(4)
