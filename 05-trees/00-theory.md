@@ -4,12 +4,12 @@ A tree whose elements have at most 2 children is called a binary tree. Since eac
 
 ## Properties of binary tree
 
-- 1. Max no. of nodes at level l (if root level is 0) = $2^l$ (l-level)
-- 2. Max no. of nodes in a binary tree of height h = $2^h - 1 = 2^{h+1} - 1$ (if root level is 0)
-- 3. Binary tree with N nodes, min possible height or the min levels is = $Log_2(N+1)$
-- 4. Binary tree with h leaves has levels at least = $|Log_2L|+1$
-- 5. In a binary tree where every nodes has 0 or 2 children, no. of leaf nodes is always one more than nodes with 2 children.
-- 6. In a non-empty binary tree, if n is the total no. of nodes and e is the edges then $e = n-1$
+- Max no. of nodes at level l (if root level is 0) = $2^l$ (l-level)
+- Max no. of nodes in a binary tree of height h = $2^h - 1 = 2^{h+1} - 1$ (if root level is 0)
+- Binary tree with N nodes, min possible height or the min levels is = $Log_2(N+1)$
+- Binary tree with h leaves has levels at least = $|Log_2L|+1$
+- In a binary tree where every nodes has 0 or 2 children, no. of leaf nodes is always one more than nodes with 2 children.
+- In a non-empty binary tree, if n is the total no. of nodes and e is the edges then $e = n-1$
 
 ## Types of Binary Trees
 
