@@ -113,4 +113,9 @@ if __name__ == "__main__":
     btree.insertion(66)
     btree.insertion(90)
     btree.insertion(2)
+
+    print("\nInorder Traversal:")
+    btree.inorder_traversal()
+
+    print("\n\nBreadth First Traversal:")
     btree.breadth_first_traversal()
