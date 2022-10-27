@@ -71,12 +71,15 @@ class BinaryTree:
     def get_height(self):
         left_height = right_height = -1
 
+        # if there is left child then recursively obtain it's height
         if self.left:
             left_height = self.left.get_height()
 
+        # if there is right child then recrusively obtain it's height
         if self.right:
             right_height = self.right.get_height()
 
+        # the larger one would be considered the height at the current node
         if left_height > right_height:
             return left_height + 1
         else:
