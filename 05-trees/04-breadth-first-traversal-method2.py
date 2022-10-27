@@ -107,16 +107,20 @@ class BinaryTree:
                 self.right.inorder_traversal()
 
     def breadth_first_traversal(self):
-        queue = Queue(50)
 
-        temp_node = self
-        queue.enqueue(temp_node)
+        # create a queue and enqueue the first element
+        queue = Queue(50)
+        queue.enqueue(self)
+
+        # until the queue is empty
         while not queue.is_empty():
+
+            # remove the first element and print it
             item = queue.dequeue()
 
+            # enque its children nodes if they exist
             if item.left:
                 queue.enqueue(item.left)
-
             if item.right:
                 queue.enqueue(item.right)
 
