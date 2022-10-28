@@ -81,10 +81,7 @@ def get_height(tree):
     right_height = get_height(tree.right)
 
     # the larger one would be considered the height at the current node
-    if left_height > right_height:
-        return left_height + 1
-    else:
-        return right_height + 1
+    return 1 + max(left_height, right_height)
 
 
 def breadth_first_traversal(tree):
