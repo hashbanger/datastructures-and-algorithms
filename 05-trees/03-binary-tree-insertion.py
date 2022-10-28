@@ -37,19 +37,19 @@ class BinaryTree:
         else:
             self.data = new_data
 
-    def inorder_traversal(self):
-        if self.data:
 
-            # if not none, recursively iterate in the left direction
-            if self.left:
-                self.left.inorder_traversal()
+def inorder_traversal(tree):
+    if tree is None:
+        return
 
-            # output the root value
-            print(self.data, end=" ")
+    # recursively visit the left child until its None
+    inorder_traversal(tree.left)
 
-            # if not none, recursively iterate in the right direction
-            if self.right:
-                self.right.inorder_traversal()
+    # output the root value
+    print(tree.data, end=" ")
+
+    # recursively visit the right child until its None
+    inorder_traversal(tree.right)
 
 
 if __name__ == "__main__":
@@ -69,4 +69,7 @@ if __name__ == "__main__":
     btree.insertion(66)
     btree.insertion(90)
     btree.insertion(90)
-    btree.inorder_traversal()
+    btree.insertion(2)
+
+    print("Inorder Traversal:")
+    inorder_traversal(btree)
