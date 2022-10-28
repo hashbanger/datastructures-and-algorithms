@@ -37,63 +37,65 @@ class BinaryTree:
         else:
             self.data = new_data
 
-    def inorder_traversal(self):
-        if self.data:
 
-            # if not none, recursively iterate in the left direction
-            if self.left:
-                self.left.inorder_traversal()
+def inorder_traversal(tree):
+    if tree is None:
+        return
 
-            # output the root value
-            print(self.data, end=" ")
+    # recursively visit the left child until its None
+    inorder_traversal(tree.left)
 
-            # if not none, recursively iterate in the right direction
-            if self.right:
-                self.right.inorder_traversal()
+    # output the root value
+    print(tree.data, end=" ")
 
-    def traverse_current_level(self, level):
+    # recursively visit the right child until its None
+    inorder_traversal(tree.right)
 
-        # level decreases recursively until final desired level is reached
-        if level == 1:
-            print(self.data, end=" ")
 
-        # if not reached to the level go one level below each side
-        elif level > 1:
+def traverse_current_level(tree, level):
+    if tree is None:
+        return
 
-            # if left exisits recursively iterate to next level
-            if self.left:
-                self.left.traverse_current_level(level - 1)
+    # level decreases recursively until final desired level is reached
+    if level == 1:
+        print(tree.data, end=" ")
 
-            # if right exisits recursively iterate to next level
-            if self.right:
-                self.right.traverse_current_level(level - 1)
+    # if not reached to the level go one level below each side
+    elif level > 1:
 
-    def get_height(self):
-        left_height = right_height = -1
+        # if left exisits recursively iterate to next level
+        traverse_current_level(tree.left, level - 1)
 
-        # if there is left child then recursively obtain it's height
-        if self.left:
-            left_height = self.left.get_height()
+        # if right exisits recursively iterate to next level
+        traverse_current_level(tree.right, level - 1)
 
-        # if there is right child then recrusively obtain it's height
-        if self.right:
-            right_height = self.right.get_height()
 
-        # the larger one would be considered the height at the current node
-        if left_height > right_height:
-            return left_height + 1
-        else:
-            return right_height + 1
+def get_height(tree):
+    if tree is None:
+        return -1
 
-    def breadth_first_traversal(self):
+    # recursively visit the left child if it exists
+    left_height = get_height(tree.left)
 
-        # get the height for the tree
-        height = self.get_height()
+    # recursively visit the right child if it exists
+    right_height = get_height(tree.right)
 
-        # for each level traverse all the level nodes
-        for h in range(1, height + 1):
-            self.traverse_current_level(h)
-            print()
+    # the larger one would be considered the height at the current node
+    if left_height > right_height:
+        return left_height + 1
+    else:
+        return right_height + 1
+
+
+def breadth_first_traversal(tree):
+
+    # get the height for the tree
+    height = get_height(tree)
+
+    # for each level traverse all the level nodes
+    for h in range(0, height + 1):
+        traverse_current_level(tree, h + 1)
+        print()
 
 
 if __name__ == "__main__":
@@ -115,7 +117,7 @@ if __name__ == "__main__":
     btree.insertion(2)
 
     print("\nInorder Traversal:")
-    btree.inorder_traversal()
+    inorder_traversal(btree)
 
     print("\n\nBreadth First Traversal:")
-    btree.breadth_first_traversal()
+    breadth_first_traversal(btree)
