@@ -92,39 +92,42 @@ class BinaryTree:
         else:
             self.data = new_data
 
-    def inorder_traversal(self):
-        if self.data:
 
-            # if not none, recursively iterate in the left direction
-            if self.left:
-                self.left.inorder_traversal()
+def inorder_traversal(tree):
+    if tree is None:
+        return
 
-            # output the root value
-            print(self.data, end=" ")
+    # recursively visit the left child until its None
+    inorder_traversal(tree.left)
 
-            # if not none, recursively iterate in the right direction
-            if self.right:
-                self.right.inorder_traversal()
+    # output the root value
+    print(tree.data, end=" ")
 
-    def breadth_first_traversal(self):
+    # recursively visit the right child until its None
+    inorder_traversal(tree.right)
 
-        # create a queue and enqueue the first element
-        queue = Queue(50)
-        queue.enqueue(self)
 
-        # until the queue is empty
-        while not queue.is_empty():
+def breadth_first_traversal(tree):
+    if tree is None:
+        return
 
-            # remove the first element and print it
-            item = queue.dequeue()
+    # create a queue and enqueue the first element
+    queue = Queue(50)
+    queue.enqueue(tree)
 
-            # enque its children nodes if they exist
-            if item.left:
-                queue.enqueue(item.left)
-            if item.right:
-                queue.enqueue(item.right)
+    # until the queue is empty
+    while not queue.is_empty():
 
-            print(f"{item.data}", end=" ")
+        # remove the first element and print it
+        item = queue.dequeue()
+
+        # enque its children nodes if they exist
+        if item.left:
+            queue.enqueue(item.left)
+        if item.right:
+            queue.enqueue(item.right)
+
+        print(f"{item.data}", end=" ")
 
 
 if __name__ == "__main__":
@@ -146,7 +149,7 @@ if __name__ == "__main__":
     btree.insertion(2)
 
     print("\nInorder Traversal:")
-    btree.inorder_traversal()
+    inorder_traversal(btree)
 
     print("\n\nBreadth First Traversal:")
-    btree.breadth_first_traversal()
+    breadth_first_traversal(btree)
