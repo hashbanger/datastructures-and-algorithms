@@ -98,7 +98,7 @@ def _find_inorder_successor(ptr):
     return tree
 
 
-def traverse_threaded_binary_tree(tree):
+def inorder_traverse_threaded_binary_tree(tree):
     if tree is None:
         print("Empty Tree.")
         return None
@@ -114,6 +114,22 @@ def traverse_threaded_binary_tree(tree):
         ptr = _find_inorder_successor(ptr)
 
 
+def preorder_traverse_threaded_binary_tree(tree):
+    ptr = tree
+    while ptr is not None:
+        print(ptr.data, end=" ")
+        if ptr.left_thread == False:
+            ptr = ptr.left
+        else:
+
+            while (ptr is not None) and (ptr.right_thread == True):
+                ptr = ptr.right
+            if (ptr is not None) and (ptr.right_thread == False):
+                ptr = ptr.right
+
+
+# TODO: Add post order traversal as well
+
 if __name__ == "__main__":
     tbtree = None
     tbtree = insertion(tbtree, 10)
@@ -124,8 +140,11 @@ if __name__ == "__main__":
     insertion(tbtree, 5)
     insertion(tbtree, 6)
 
-    print("\nThreaded Binary Tree Traversal: ")
-    traverse_threaded_binary_tree(tbtree)
+    print("\nThreaded Binary Tree Inorder Traversal: ")
+    inorder_traverse_threaded_binary_tree(tbtree)
+
+    print("\nThreaded Binary Tree Preorder Traversal: ")
+    preorder_traverse_threaded_binary_tree(tbtree)
 
     tbtree = None
     tbtree = insertion(tbtree, 25)
@@ -145,5 +164,8 @@ if __name__ == "__main__":
     insertion(tbtree, 90)
     insertion(tbtree, 2)
 
-    print("\n\nThreaded Binary Tree Traversal: ")
-    traverse_threaded_binary_tree(tbtree)
+    print("\n\nThreaded Binary Tree Inorder Traversal: ")
+    inorder_traverse_threaded_binary_tree(tbtree)
+
+    print("\nThreaded Binary Tree Preorder Traversal: ")
+    preorder_traverse_threaded_binary_tree(tbtree)
