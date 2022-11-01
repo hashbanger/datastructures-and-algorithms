@@ -129,12 +129,16 @@ def preorder_traverse_threaded_binary_tree(tree):
     ptr = tree
     while ptr.data is not None:
         print(ptr.data, end=" ")
+
+        # if there is a left child then we move to left
         if ptr.left_thread == False:
             ptr = ptr.left
         else:
-
+            # otherwise keep moving back using the right threads until right child exists for a node
             while (ptr.data is not None) and (ptr.right_thread == True):
                 ptr = ptr.right
+
+            # if there is a right child then move to right
             if (ptr.data is not None) and (ptr.right_thread == False):
                 ptr = ptr.right
 
