@@ -147,7 +147,7 @@ if __name__ == "__main__":
     print("\nThreaded Binary Tree Inorder Traversal: ")
     inorder_traverse_threaded_binary_tree(tbtree)
 
-    print("\nThreaded Binary Tree Preorder Traversal: ")
+    print("\n\nThreaded Binary Tree Preorder Traversal: ")
     preorder_traverse_threaded_binary_tree(tbtree)
 
     tbtree = None
@@ -171,5 +171,5 @@ if __name__ == "__main__":
     print("\n\nThreaded Binary Tree Inorder Traversal: ")
     inorder_traverse_threaded_binary_tree(tbtree)
 
-    print("\nThreaded Binary Tree Preorder Traversal: ")
+    print("\n\nThreaded Binary Tree Preorder Traversal: ")
     preorder_traverse_threaded_binary_tree(tbtree)
