@@ -1,3 +1,4 @@
+# calculating the maximum width of a binary tree using breadth first traversal with queue.
 class Queue:
     def __init__(self, size):
         self.size = size
