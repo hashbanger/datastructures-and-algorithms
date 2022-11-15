@@ -39,6 +39,7 @@ class BinaryTree:
 
 
 def _check_identical(tree, subtree):
+
     # if both are none then subtree is part of the tree
     if (tree is None) and (subtree is None):
         return True
@@ -56,6 +57,7 @@ def _check_identical(tree, subtree):
 
 
 def check_subtree(tree, subtree):
+
     # if the subtree is empty then it is part of the tree
     if subtree is None:
         return True
