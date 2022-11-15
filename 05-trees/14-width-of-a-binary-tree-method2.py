@@ -116,7 +116,7 @@ def get_max_width(tree):
         while level_count > 0:
             level_count = level_count - 1
 
-            # remove the first element and print it
+            # remove the first element
             item = queue.dequeue()
 
             # enque its children nodes if they exist
