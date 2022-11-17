@@ -205,3 +205,20 @@ if __name__ == "__main__":
     connect_level_nodes(btree)
     inorder_traversal(btree)
     # breadth_first_traversal(btree)
+
+    print("\n")
+    btree = BinaryTree(10)
+    btree.insertion(8)
+    btree.insertion(11)
+    btree.insertion(5)
+    btree.insertion(9)
+    btree.insertion(12)
+    btree.insertion(6)
+
+    print("\nInorder Traversal:")
+    inorder_traversal(btree)
+
+    print("\n\nConnecting level Nodes")
+    connect_level_nodes(btree)
+    inorder_traversal(btree)
+    # breadth_first_traversal(btree)
