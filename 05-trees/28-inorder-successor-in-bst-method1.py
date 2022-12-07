@@ -81,7 +81,7 @@ def _find_inorder_successor(tree):
     if current.right:
 
         # go to right and find the minimum value
-        return _get_min_node(tree.right)
+        return _get_min_node(current.right)
 
     # if there is no right child go to parent
     parent = current.parent
