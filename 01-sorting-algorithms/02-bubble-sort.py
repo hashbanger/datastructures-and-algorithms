@@ -1,20 +1,23 @@
 # Bubble Sort
-# Time Complexity: O(n^2)
-# Suitable for large datasets
+
+# Best-case: O(N^2)
+# Worst-case: O(N^2)
+# Average-case: O(N^2)
 def bubble_sort(array):
 
     # number of time to run the logic
-    for _ in range(len(array) - 1):
+    for k in range(len(array) - 1):
 
         # keep swapping adjacent elements till the end of array
-        for i in range(len(array) - 1):
+        for i in range(len(array) - 1 - k):
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
 
     return array
 
-
-# Time Complexity: Best Case = O(N), Worst/Average Case = O(N^2)
+# Best-case: O(N)
+# Worst-case: O(N^2)
+# Average-case: O(N^2)
 def bubble_sort_optimized(array):
 
     # number of time to run the logic
