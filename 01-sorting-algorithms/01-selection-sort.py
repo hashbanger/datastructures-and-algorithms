@@ -1,6 +1,8 @@
 # Selection sort
-# Time Complexity: O(n^2)
-# Auxilary Space: O(1) only extra temporary variable is used for swapping
+
+# Best-case: O(1)
+# Worst-case: O(n)
+# Average-case: O(n)
 def selection_sort(array):
 
     for i in range(len(array)):

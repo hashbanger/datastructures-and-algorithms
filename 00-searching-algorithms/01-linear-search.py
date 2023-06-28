@@ -1,9 +1,12 @@
 # Linear Search
 
+
 class LinearSearch:
     def __init__(self, array, num):
-        self.array = sorted(array)
+        self.array = array
+        self.sorted_array = sorted(self.array)
         self.num = num
+
     # Best-case: O(1)
     # Worst-case: O(n)
     # Average-case: O(n)
@@ -12,7 +15,6 @@ class LinearSearch:
             if self.array[i] == self.num:
                 return i
         return -1
-
 
     # This approach could be considered less efficient
     # Best-case: O(1)
@@ -43,13 +45,16 @@ class LinearSearch:
     # Worst-case: O(n)
     # Average-case: O(n)
     def linear_search_sorted_array(self, array=None, num=None):
-        sorted_array = sorted(self.array)
-        for i in range(len(sorted_array)):
-            if sorted_array[i] == self.num:
+
+        for i in range(len(self.sorted_array)):
+            if self.sorted_array[i] == self.num:
                 return True
-            if sorted_array[i] > self.num:
+
+            # if we find a greater element in a sorted array, we know that the element is not present
+            if self.sorted_array[i] > self.num:
                 return False
         return False
+
 
 if __name__ == "__main__":
     array = list(map(int, input().split()))
