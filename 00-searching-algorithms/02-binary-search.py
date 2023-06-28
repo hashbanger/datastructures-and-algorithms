@@ -1,8 +1,14 @@
-# Linear Search
+# Binary Search
+
+# Best-case: O(1)
+# Worst-case: O(log n)
+# Average-case: O(log n)
 def binary_search(array, num):
     start = 0
     end = len(array) - 1
 
+    # the stopping criteria
+    # the equals is necessary for check of the last element
     while start <= end:
 
         # calculating the middle
@@ -22,7 +28,9 @@ def binary_search(array, num):
 
     return -1
 
-
+# Best-case: O(1)
+# Worst-case: O(log n)
+# Average-case: O(log n)
 def binary_search_recursive(array, num, start, end):
 
     # check the base condition
@@ -46,8 +54,8 @@ def binary_search_recursive(array, num, start, end):
 
 
 if __name__ == "__main__":
-    array = list(map(int, input().split()))
-    num = int(input())
+    array = list(map(int, input().split())) # [16, 25, 32, 38, 40, 41, 44, 53, 57 ,59]
+    num = int(input()) # 44
     print("Array to search:", array)
     print("Element to search:", num)
 
