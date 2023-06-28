@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -19,6 +20,7 @@ class LinkedList:
             print(current.data, end=" - ")
             current = current.next
 
+
 # merging two sorted linked lists
 def merge_linked_lists(head_a, head_b):
     dummy_node = Node(None)
@@ -29,12 +31,12 @@ def merge_linked_lists(head_a, head_b):
         if head_a == None:
             tail.next = head_b
             break
-        
+
         # if b doesn't exist of is exhausted
         if head_b == None:
             tail.next = head_a
             break
-        
+
         # if both are present then
         if head_a.data < head_b.data:
             tail.next = head_a
@@ -42,7 +44,7 @@ def merge_linked_lists(head_a, head_b):
         else:
             tail.next = head_b
             head_b = head_b.next
-        
+
         # move the tail pointer
         tail = tail.next
 

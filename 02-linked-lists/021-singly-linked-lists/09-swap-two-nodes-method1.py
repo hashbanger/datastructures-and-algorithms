@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -39,7 +40,7 @@ class LinkedList:
 
         # the method is to swap the previous values first
         # then swap the next node chains
-        
+
         # if x is not the head of the list
         if previous_x != None:
             previous_x.next = current_y

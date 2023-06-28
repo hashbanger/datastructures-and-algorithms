@@ -4,6 +4,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -23,7 +24,7 @@ class LinkedList:
                 self.head = current.next
                 current = None
                 return
-                
+
         # searching for the key to be deleted
         # tracking the previous of the key to be deleted as well
         while current is not None:

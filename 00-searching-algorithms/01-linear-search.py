@@ -10,6 +10,7 @@ def linear_search(array, num):
             return i
     return -1
 
+
 # This approach could be considered less efficient
 # Best-case: O(1)
 # Worst-case: O(n)
@@ -22,19 +23,20 @@ def linear_search_method2(array, num):
     while left <= right:
 
         # if found from the left side
-        if (array[left] == num):
+        if array[left] == num:
             return left
 
         # if found from right side
-        if (array[right] == num):
+        if array[right] == num:
             return right
-        
+
         left = left + 1
         right = right - 1
-    
+
     return -1
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     array = list(map(int, input().split()))
     num = int(input())
     print("Array to search:", array)

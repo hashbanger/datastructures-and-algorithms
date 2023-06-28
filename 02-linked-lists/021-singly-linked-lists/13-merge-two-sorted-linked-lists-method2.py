@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -35,10 +36,10 @@ def merge_linked_lists(head_a, head_b):
         head_a = head_b
         head_b = temp
 
-    # since the lowest one would be the returning head 
+    # since the lowest one would be the returning head
     # and head_a is ensured to be lowest, so we store it already.
     result = head_a
-    
+
     # we keep moving until we run out of both
     while (head_a != None) and (head_b != None):
         ptr = None
@@ -49,7 +50,7 @@ def merge_linked_lists(head_a, head_b):
             ptr = head_a
             head_a = head_a.next
         ptr.next = head_b
-        
+
         # swapping the heads
         temp = head_a
         head_a = head_b

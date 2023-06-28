@@ -7,9 +7,9 @@ def selection_sort(array):
 
         # take the current element as the minimum
         min_idx = i
-        
+
         # look for the minimum number in the remaining array
-        for j in range(i+1, len(array)):
+        for j in range(i + 1, len(array)):
             if array[min_idx] > array[j]:
                 min_idx = j
 
@@ -18,7 +18,8 @@ def selection_sort(array):
 
     return array
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     input_array = list(map(int, input().split()))
     print("Input Array: ", input_array)
     print("Sorted Array: ", selection_sort(input_array))
