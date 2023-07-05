@@ -1,5 +1,5 @@
 # implementation of a stack using python
-class Stack:
+class TraditionalStack:
     def __init__(self, size):
         self.top = -1
         self.size = size
@@ -44,6 +44,30 @@ class Stack:
         print("stack underflow!")
         return
 
+class Stack:
+    def __init__(self, size):
+        self.elements = []
+
+    def is_empty(self):
+        return not self.elements
+
+    def push(self, item):
+        self.elements.append(item)
+        print(f"pushed {item}")
+
+    def pop(self):
+        if not self.is_empty():
+            item = self.elements.pop()
+            print(f"popped {item}")
+            return item
+
+        print("can't pop. stack underflow!")
+
+    def peek(self):
+        if not self.is_empty():
+            print(f"Top element {self.elements[-1]}")
+            return self.elements[-1]
+        print("stack underflow!")
 
 if __name__ == "__main__":
     stk = Stack(5)
@@ -56,6 +80,7 @@ if __name__ == "__main__":
 
     stk.peek()
 
+    stk.pop()
     stk.pop()
     stk.pop()
     stk.pop()
