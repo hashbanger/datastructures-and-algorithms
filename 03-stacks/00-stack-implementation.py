@@ -45,7 +45,7 @@ class TraditionalStack:
         return
 
 class Stack:
-    def __init__(self, size):
+    def __init__(self):
         self.elements = []
 
     def is_empty(self):
@@ -70,7 +70,7 @@ class Stack:
         print("stack underflow!")
 
 if __name__ == "__main__":
-    stk = Stack(5)
+    stk = Stack()
     stk.push(5)
     stk.push(4)
     stk.push(3)
