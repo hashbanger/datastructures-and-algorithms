@@ -44,6 +44,7 @@ class TraditionalStack:
         print("stack underflow!")
         return
 
+
 class Stack:
     def __init__(self):
         self.elements = []
@@ -68,6 +69,8 @@ class Stack:
             print(f"Top element {self.elements[-1]}")
             return self.elements[-1]
         print("stack underflow!")
+        return
+
 
 if __name__ == "__main__":
     stk = Stack()

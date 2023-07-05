@@ -26,16 +26,17 @@ class ConversionStack:
             print(f"Top element {self.elements[-1]}")
             return self.elements[-1]
         print("stack underflow!")
+        return
 
     # to check whether the element is a operand or operator
     def is_operand(self, ch):
         return ch.isalpha() or ch.isdigit()
 
     def precedence(self, ch):
-        precedence_values = {"^":3, "*": 2, "/": 2, "+": 1, "-":1, "(": 0}
+        precedence_values = {"^": 3, "*": 2, "/": 2, "+": 1, "-": 1, "(": 0}
 
         if ch not in precedence_values.keys():
-            raise KeyError(f"operator {ch} not supported!")        
+            raise KeyError(f"operator {ch} not supported!")
 
         return precedence_values[ch]
 
@@ -71,7 +72,9 @@ class ConversionStack:
                 # keep popping operators and add to output till
                 # current's precedence is not greater than top one in stack
                 # or the stack runs empty
-                while (not self.is_empty()) and (self.precedence(ch) <= self.precedence(self.peek())):
+                while (not self.is_empty()) and (
+                    self.precedence(ch) <= self.precedence(self.peek())
+                ):
                     self.output.append(self.pop())
 
                 # if precedence is greater then just push to the stack

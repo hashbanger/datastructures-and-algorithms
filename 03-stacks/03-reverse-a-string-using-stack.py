@@ -1,48 +1,33 @@
 # reversing a string using stack
 class Stack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
+        self.output = []
 
     def is_empty(self):
-        return self.top == -1
-
-    def is_full(self):
-        return self.top == (self.size - 1)
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            print("Can't push. Stack overflow!")
+        self.elements.append(item)
+        print(f"pushed {item}")
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
+            print(f"popped {item}")
             return item
-        else:
-            print("Can't pop. Stack underflow!")
+
+        print("can't pop. stack underflow!")
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
+            return self.elements[-1]
         print("stack underflow!")
         return
 
 
 def reverse_string(input_string):
-    stack = Stack(len(input_string))
+    stack = Stack()
 
     # first we push all the elements to the stack
     for ch in input_string:

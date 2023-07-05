@@ -26,17 +26,18 @@ class ConversionStack:
             print(f"Top element {self.elements[-1]}")
             return self.elements[-1]
         print("stack underflow!")
+        return
 
     def perform_operation(self, operand1, operand2, operator):
-        if operator == '+':
+        if operator == "+":
             return operand1 + operand2
-        elif operator == '-':
+        elif operator == "-":
             return operand1 - operand2
-        elif operator == '*':
+        elif operator == "*":
             return operand1 * operand2
-        elif operator == '/':
+        elif operator == "/":
             return operand1 / operand2
-        elif operator == '^':
+        elif operator == "^":
             return operand1 ** operand2
         else:
             print(f"Invalid operator: {operator}")
