@@ -1,71 +1,43 @@
 # converting an infix expression to postfix using a stack
 class ConversionStack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
-
-        # precedence settings
-        self.precedence = {"+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
 
         # output expression
         self.output = []
 
     def is_empty(self):
-        return self.top == -1
-
-    def is_full(self):
-        return self.top == (self.size - 1)
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            print("Can't push. Stack overflow!")
+        self.elements.append(item)
+        print(f"pushed {item}")
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
+            print(f"popped {item}")
             return item
-        else:
-            print("Can't pop. Stack underflow!")
+
+        print("can't pop. stack underflow!")
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
+            print(f"Top element {self.elements[-1]}")
+            return self.elements[-1]
         print("stack underflow!")
-        return
 
     # to check whether the element is a operand or operator
     def is_operand(self, ch):
         return ch.isalpha() or ch.isdigit()
 
-    def input_precedence_greater(self, opr):
+    def precedence(self, ch):
+        precedence_values = {"^":3, "*": 2, "/": 2, "+": 1, "-":1, "(": 0}
 
-        # first to compare if the next operator in the expression
-        # has higher precedence or not
-        try:
-            input_precedence = self.precedence[opr]
-            top_precedence = self.precedence[self.peek()]
+        if ch not in precedence_values.keys():
+            raise KeyError(f"operator {ch} not supported!")        
 
-            if input_precedence > top_precedence:
-                return True
-            else:
-                return False
-
-        # this is to consider an operator precedence greater then a bracket
-        except KeyError:
-            return True
+        return precedence_values[ch]
 
     def infix_to_postfix(self, expression):
         for ch in expression:
@@ -99,7 +71,7 @@ class ConversionStack:
                 # keep popping operators and add to output till
                 # current's precedence is not greater than top one in stack
                 # or the stack runs empty
-                while (not self.is_empty()) and (not self.input_precedence_greater(ch)):
+                while (not self.is_empty()) and (self.precedence(ch) <= self.precedence(self.peek())):
                     self.output.append(self.pop())
 
                 # if precedence is greater then just push to the stack
@@ -114,12 +86,13 @@ class ConversionStack:
 
 
 if __name__ == "__main__":
+    # infix_expression = "3*(4+2)/(1-5)^2"
     infix_expression = "a+b*(c^d-e)^(f+g*h)-i"
-    # infix_expression = "2*(2+3)+4"
+    # infix_expression = "(7+3*(10/(12/(3+1)-1)))*(4-2)/(2+(3-1)*(2+2))"
 
     print(f"Infix Expression {infix_expression}")
 
-    conversion_stack = ConversionStack(size=len(infix_expression))
+    conversion_stack = ConversionStack()
     postfix_expression = conversion_stack.infix_to_postfix(infix_expression)
 
     print(f"Postfix Expression {postfix_expression}")
