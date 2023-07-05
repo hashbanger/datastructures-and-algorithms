@@ -1,47 +1,49 @@
 # evaluating a postfix expression uisnga stack
 class ConversionStack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
 
-    def is_empty(self):
-        return self.top == -1
+        # output expression
+        self.output = []
 
-    def is_full(self):
-        return self.top == (self.size - 1)
+    def is_empty(self):
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            print("Can't push. Stack overflow!")
+        self.elements.append(item)
+        print(f"pushed {item}")
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
+            print(f"popped {item}")
             return item
-        else:
-            print("Can't pop. Stack underflow!")
+
+        print("can't pop. stack underflow!")
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
+            print(f"Top element {self.elements[-1]}")
+            return self.elements[-1]
         print("stack underflow!")
 
-    # to check whether the element is a operand or not
+    def perform_operation(self, operand1, operand2, operator):
+        if operator == '+':
+            return operand1 + operand2
+        elif operator == '-':
+            return operand1 - operand2
+        elif operator == '*':
+            return operand1 * operand2
+        elif operator == '/':
+            return operand1 / operand2
+        elif operator == '^':
+            return operand1 ** operand2
+        else:
+            print(f"Invalid operator: {operator}")
+
+    # to check whether the element is a operand or operator
     def is_operand(self, ch):
-        return ch.isdigit()
+        return ch.isalpha() or ch.isdigit()
 
     def evaluate_postfix(self, expression):
 
@@ -54,18 +56,20 @@ class ConversionStack:
             # if we encounter an operator, we evaluate using last two operands
             # then push it to the stack
             else:
-                value_2 = self.pop()
-                value_1 = self.pop()
-                self.push(str(eval(value_1 + ch + value_2)))
+                value_2 = int(self.pop())
+                value_1 = int(self.pop())
+                result = self.perform_operation(value_1, value_2, ch)
+                self.push(result)
 
-        return int(self.pop())
+        return self.pop()
 
 
 if __name__ == "__main__":
-    postfix_expression = "231*+9-"
+    # postfix_expression = "231*+9-"
+    postfix_expression = "342+*15-2^/"
     print(f"Postfix Expression {postfix_expression}")
 
-    conversion_stack = ConversionStack(size=len(postfix_expression))
+    conversion_stack = ConversionStack()
     postfix_evaluation = conversion_stack.evaluate_postfix(postfix_expression)
 
     print(f"Evaluated Value {postfix_evaluation}")
