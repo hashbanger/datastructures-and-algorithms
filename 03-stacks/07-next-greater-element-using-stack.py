@@ -66,6 +66,7 @@ def next_greater_element_using_stack(array):
         popped = stack.pop()
         print(f"{popped} -- -1")
 
+
 if __name__ == "__main__":
     input_array = [4, 7, 9, 2, 16, 12, 18, 21, 19, 40, 40, 40]
 

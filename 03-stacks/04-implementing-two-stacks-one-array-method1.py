@@ -71,6 +71,7 @@ class TwoStack:
     def peek2(self):
         return self.elements[self.top2]
 
+
 if __name__ == "__main__":
     twostack = TwoStack(7)
 

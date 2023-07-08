@@ -28,6 +28,7 @@ class Stack:
         print("stack underflow!")
         return
 
+
 def check_balanced_parentheses(input_string):
     # initializing the stack to use
     stack = Stack()

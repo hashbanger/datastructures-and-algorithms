@@ -1,48 +1,28 @@
 # Solving the stock span problem using brute force and then stack
 class Stack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
+        self.output = []
 
     def is_empty(self):
-        return self.top == -1
-
-    def is_full(self):
-        return self.top == (self.size - 1)
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            return False
+        self.elements.append(item)
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
             return item
-        else:
-            return False
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
-        print("stack underflow!")
+            return self.elements[-1]
         return
 
 
 def stock_span_solve_stack(array):
-    stack = Stack(len(array))
+    stack = Stack()
     spans = [None] * len(array)
 
     stack.push(0)
