@@ -11,9 +11,6 @@ class TwoStack:
         self.top1 = -1
         self.top2 = self.size
 
-    def is_empty(self):
-        return True if self.top == -1 else False
-
     def push1(self, item):
 
         # if there at least one space between the two tops

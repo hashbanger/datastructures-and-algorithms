@@ -44,7 +44,7 @@ def reverse_string(input_string):
 
 
 if __name__ == "__main__":
-    input_string = "cogito ergo sum"
+    input_string = "prashant"
     print(f"Input String: {input_string}")
 
     reverse_string = reverse_string(input_string)

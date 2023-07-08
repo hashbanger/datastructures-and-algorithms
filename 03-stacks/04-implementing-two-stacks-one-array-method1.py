@@ -11,9 +11,6 @@ class TwoStack:
         self.top1 = self.size // 2
         self.top2 = (self.size // 2) - 1
 
-    def is_empty(self):
-        return True if self.top == -1 else False
-
     def push1(self, item):
 
         # there should be at least one space left
@@ -24,8 +21,9 @@ class TwoStack:
 
             # pushing the item
             self.elements[self.top1] = item
+            print(f"pushed {item}")
         else:
-            print(f"Can't push {item}. Stack 1 overflow!")
+            print(f"can't push {item}. Stack 1 overflow!")
 
     def push2(self, item):
 
@@ -37,8 +35,9 @@ class TwoStack:
 
             # pushing the element
             self.elements[self.top2] = item
+            print(f"pushed {item}")
         else:
-            print(f"Can't push {item}. Stack 2 overflow!")
+            print(f"can't push {item}. Stack 2 overflow!")
 
     def pop1(self):
         if self.top1 < self.size // 2:
@@ -71,7 +70,6 @@ class TwoStack:
 
     def peek2(self):
         return self.elements[self.top2]
-
 
 if __name__ == "__main__":
     twostack = TwoStack(7)

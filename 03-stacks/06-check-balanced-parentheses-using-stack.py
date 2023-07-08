@@ -1,49 +1,36 @@
 # checking for balanced parenthese in a string using stack
 class Stack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
 
-    def is_empty(self):
-        return self.top == -1
+        # output expression
+        self.output = []
 
-    def is_full(self):
-        return self.top == (self.size - 1)
+    def is_empty(self):
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            return False
+        self.elements.append(item)
+        print(f"pushed {item}")
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
+            print(f"popped {item}")
             return item
-        else:
-            return False
+
+        print("can't pop. stack underflow!")
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
+            print(f"Top element {self.elements[-1]}")
+            return self.elements[-1]
         print("stack underflow!")
         return
 
-
 def check_balanced_parentheses(input_string):
     # initializing the stack to use
-    stack = Stack(10)
+    stack = Stack()
 
     if not input_string:
         return True
@@ -51,7 +38,7 @@ def check_balanced_parentheses(input_string):
     for ch in input_string:
         if ch in ["{", "(", "["]:
             stack.push(ch)
-        else:
+        elif ch in ["}", ")", "]"]:
             popped = stack.pop()
 
             if (ch == "}") and (popped != "{"):
@@ -60,6 +47,8 @@ def check_balanced_parentheses(input_string):
                 return False
             elif (ch == "]") and (popped != "["):
                 return False
+        else:
+            continue
 
     if stack.peek() is not None:
         return False
@@ -69,10 +58,15 @@ def check_balanced_parentheses(input_string):
 if __name__ == "__main__":
     input_string = "[]{}((([[[]]])))"
     result = check_balanced_parentheses(input_string)
-    print(f"Input String {input_string}")
-    print(f"Result {result}")
+    print(f"\nInput String {input_string}")
+    print(f"Result {result}\n")
 
     input_string = "[]}[[[]]]"
     result = check_balanced_parentheses(input_string)
-    print(f"Input String {input_string}")
-    print(f"Result {result}")
+    print(f"\nInput String {input_string}")
+    print(f"Result {result}\n")
+
+    input_string = "3*(2+2) - (4*(6+2*(18/3))"
+    result = check_balanced_parentheses(input_string)
+    print(f"\nInput String {input_string}")
+    print(f"Result {result}\n")
