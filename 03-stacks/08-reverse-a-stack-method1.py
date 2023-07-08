@@ -2,8 +2,6 @@
 class Stack:
     def __init__(self):
         self.elements = []
-
-        # output expression
         self.output = []
 
     def is_empty(self):
@@ -11,21 +9,15 @@ class Stack:
 
     def push(self, item):
         self.elements.append(item)
-        # print(f"pushed {item}")
 
     def pop(self):
         if not self.is_empty():
             item = self.elements.pop()
-            # print(f"popped {item}")
             return item
-
-        print("can't pop. stack underflow!")
 
     def peek(self):
         if not self.is_empty():
-            # print(f"Top element {self.elements[-1]}")
             return self.elements[-1]
-        # print("stack underflow!")
         return
 
     def reverse(self):
