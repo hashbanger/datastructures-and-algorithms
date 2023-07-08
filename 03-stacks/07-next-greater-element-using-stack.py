@@ -76,7 +76,3 @@ if __name__ == "__main__":
     print("\nUsing Stack")
     print(f"Input Array {input_array}")
     next_greater_element_using_stack(input_array)
-
-    print("\nUsing Stack2")
-    print(f"Input Array {input_array}")
-    next_greater_element_using_stack2(input_array)
