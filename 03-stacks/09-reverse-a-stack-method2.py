@@ -1,6 +1,6 @@
 # We will reverse the elements of the stack using recursion
 # First take the elements one by one and hold them like in a hand using recursion stack,
-# then insert the last picked out element into the stack.
+# then insert the last picked out element into the stack when the stack is empty.
 # Then before putting the next in line element, pick up in hand the ones already pushed again using recursion stack
 # and insert the current in the bottom.
 

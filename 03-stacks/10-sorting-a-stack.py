@@ -1,4 +1,7 @@
 # Sorting a given stack using recursion
+# Here we use the same concept as in reversing stack using recursion but
+# we just add another condition where we do not pick up the previous elements while inserting
+# if they are smaller/greater than the one we want to push.
 class Stack:
     def __init__(self):
         self.elements = []
