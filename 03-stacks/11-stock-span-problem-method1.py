@@ -1,4 +1,6 @@
 # Solving the stock span problem using brute force and then stack
+# For empty stack we push the first element with 1 span
+# then for each element we pop the smaller stack elements and add their days to current span and push
 class Stack:
     def __init__(self):
         self.elements = []
@@ -48,6 +50,23 @@ def stock_span_solve_brute(array):
 
     return spans
 
+def stock_span_solve_brute_using_for_loops_only(array):
+
+    # initialize empty spans
+    spans = [None] * len(array)
+
+    for i in range(len(array)):
+        spans[i] = 1
+        
+        # move backwards till end of array
+        for j in range(i-1, -1, -1):
+            if array[j] > array[i]:
+                break
+
+            # while elements are smaller keep adding to span
+            spans[i] += 1
+
+    return spans
 
 def stock_span_solve_stack(array):
     stack = Stack()
@@ -82,6 +101,10 @@ def stock_span_solve_stack(array):
 if __name__ == "__main__":
     input_array = [10, 4, 5, 90, 120, 80]
     result_span = stock_span_solve_brute(input_array)
+    print(f"Input Array: {input_array}")
+    print(f"Stock Span: {result_span}")
+
+    result_span = stock_span_solve_brute_using_for_loops_only(input_array)
     print(f"Input Array: {input_array}")
     print(f"Stock Span: {result_span}")
 

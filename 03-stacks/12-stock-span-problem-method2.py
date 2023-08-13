@@ -1,4 +1,9 @@
 # Solving the stock span problem using brute force and then stack
+# We begin pushing the first index in the stack
+# then onwards we pop the smaller/equal element indexes
+# if stack get empty, span would be current + 1 
+# otherwise it would be current index - top index in stack
+# and we push the current index.
 class Stack:
     def __init__(self):
         self.elements = []
