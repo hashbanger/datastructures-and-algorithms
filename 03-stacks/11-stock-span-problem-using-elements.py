@@ -24,7 +24,6 @@ class Stack:
 
 
 def stock_span_solve_brute(array):
-
     # initialize the empty array to store the spans
     spans = [None] * len(array)
 
@@ -41,7 +40,6 @@ def stock_span_solve_brute(array):
 
         # if the array is not exhausted and value is smaller than current
         while (j >= 0) and (array[j] < array[i]):
-
             # increase the span
             spans[i] += 1
 
@@ -50,16 +48,16 @@ def stock_span_solve_brute(array):
 
     return spans
 
-def stock_span_solve_brute_using_for_loops_only(array):
 
+def stock_span_solve_brute_using_for_loops_only(array):
     # initialize empty spans
     spans = [None] * len(array)
 
     for i in range(len(array)):
         spans[i] = 1
-        
+
         # move backwards till end of array
-        for j in range(i-1, -1, -1):
+        for j in range(i - 1, -1, -1):
             if array[j] > array[i]:
                 break
 
@@ -68,19 +66,18 @@ def stock_span_solve_brute_using_for_loops_only(array):
 
     return spans
 
+
 def stock_span_solve_stack(array):
     stack = Stack()
     spans = []
 
     # iterate through the array
     for i in range(len(array)):
-
         price = array[i]
         days = 1
 
         # if the stack is not empty and the price on the top is smaller then
         while (stack.peek() is not None) and (stack.peek()[0] <= price):
-
             # pop the elements and
             popped = stack.pop()
             spans.append(popped)

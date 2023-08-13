@@ -38,7 +38,7 @@ class ConversionStack:
         elif operator == "/":
             return operand1 / operand2
         elif operator == "^":
-            return operand1 ** operand2
+            return operand1**operand2
         else:
             print(f"Invalid operator: {operator}")
 
@@ -47,9 +47,7 @@ class ConversionStack:
         return ch.isalpha() or ch.isdigit()
 
     def evaluate_postfix(self, expression):
-
         for ch in expression:
-
             # if the item is an operand we push it to stack
             if self.is_operand(ch):
                 self.push(ch)

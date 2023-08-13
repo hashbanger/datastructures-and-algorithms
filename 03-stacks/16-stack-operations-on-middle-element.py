@@ -15,7 +15,6 @@ class LinkedList:
         self.middle = None
 
     def insert_at_front(self, new_data, count):
-
         # creating new node
         new_node = Node(new_data)
 
@@ -47,7 +46,6 @@ class LinkedList:
 
         # if the node to be deleted is the first node
         if ptr.data == dele.data:
-
             # if it is the last node, empty the list
             if count == 1:
                 self.head = None
@@ -59,7 +57,6 @@ class LinkedList:
 
         # if the node to be deleted is middle (delete middle scenario)
         elif self.middle.data == dele.data:
-
             # make connections between adjacent nodes of middle
             self.middle.prev.next = self.middle.next
             self.middle.next.prev = self.middle.prev
@@ -107,7 +104,6 @@ class MiddleStack:
 
     def pop(self):
         if not self.is_empty():
-
             # we delete the node from the front of the linked list
             item = self.elements.delete_node(
                 dele=self.elements.head, count=self.top_count + 1

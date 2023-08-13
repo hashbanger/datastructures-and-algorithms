@@ -30,14 +30,12 @@ class Stack:
 
 
 def next_greater_element_heuristic(array):
-
     # using nested loops
     # we will generate all pairs of next greatest elements
     for i in range(len(array)):
         item = array[i]
         next_max = -1
         for j in range(i + 1, len(array)):
-
             # update maximum if the item is smaller
             if item < array[j]:
                 next_max = array[j]

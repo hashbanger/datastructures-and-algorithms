@@ -12,7 +12,6 @@ class TwoStack:
         self.top2 = self.size
 
     def push1(self, item):
-
         # if there at least one space between the two tops
         if self.top1 + 1 < self.top2:
             self.top1 += 1
@@ -21,7 +20,6 @@ class TwoStack:
             print(f"Stack 1 overflow by {item}!")
 
     def push2(self, item):
-
         # if there at least one space between the two tops
         if self.top2 - 1 > self.top1:  # (self.top1 + 1 < self.top2) also works
             self.top2 -= 1

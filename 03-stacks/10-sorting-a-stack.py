@@ -24,10 +24,8 @@ class Stack:
         return
 
     def sort_stack(self):
-
         # until the stack is not empty
         if self.peek() is not None:
-
             # store the top element on the stack frame
             temp = self.pop()
 
@@ -38,7 +36,6 @@ class Stack:
             self.sorted_insert(temp)
 
     def sorted_insert(self, item):
-
         # if the stack is not empty or top is smaller than the item then push
         if (self.peek() is None) or (self.peek() < item):
             self.push(item)

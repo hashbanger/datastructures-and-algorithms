@@ -39,7 +39,6 @@ class SpecialStack:
 
     def pop(self):
         if not self.is_empty():
-
             # popping the last element from the stacks
             item = self.elements.pop()
 

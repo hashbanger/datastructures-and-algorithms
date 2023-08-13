@@ -4,6 +4,7 @@
 # Then before putting the next in line element, pick up in hand the ones already pushed again using recursion stack
 # and insert the current in the bottom.
 
+
 class Stack:
     def __init__(self):
         self.elements = []
@@ -25,10 +26,8 @@ class Stack:
         return
 
     def reverse(self):
-
         # until the stack is not empty
         if self.peek() is not None:
-
             # hold out the top in the recursion stack
             temp = self.pop()
 
@@ -39,14 +38,12 @@ class Stack:
             self.insert_at_bottom(temp)
 
     def insert_at_bottom(self, item):
-
         # if the stack is empty then push to stack
         if self.peek() is None:
             self.push(item)
 
         # if the stack is not empty then
         else:
-
             # hold out the top in the recursion stack
             temp = self.pop()
 

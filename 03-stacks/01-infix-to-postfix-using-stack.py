@@ -42,7 +42,6 @@ class ConversionStack:
 
     def infix_to_postfix(self, expression):
         for ch in expression:
-
             # Case1: add the output if it's an operand
             if self.is_operand(ch):
                 self.output.append(ch)
@@ -53,7 +52,6 @@ class ConversionStack:
 
             # Case 3: if it's a closing parentheses then
             elif ch == ")":
-
                 # keep popping and add to output
                 # until we find an opening parenthese or stack is empty
                 while (not self.is_empty()) and (self.peek() != "("):
@@ -68,7 +66,6 @@ class ConversionStack:
 
             # Case 5: if it's an operator
             else:
-
                 # keep popping operators and add to output till
                 # current's precedence is not greater than top one in stack
                 # or the stack runs empty

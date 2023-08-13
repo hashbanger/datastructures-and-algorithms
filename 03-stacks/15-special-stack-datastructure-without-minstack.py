@@ -1,6 +1,6 @@
 # Implementing a special stack that keeps track of the minimum value in the stack.
 # We will do the operation in O(1) space complexity, without using a second stack.
-# For this we when storing the mininmum, we overwrite the min value but 
+# For this we when storing the mininmum, we overwrite the min value but
 # rather than pushing the same element in the stack we push a modified value using a formula that makes it smaller than the new min value value
 # so while popping we would identify that if the stack element is smaller than min then its is the actual min that was pushed.
 # and we would reverse the formula to get back previous minimum value.
@@ -20,7 +20,6 @@ class SpecialStack:
 
         # if the current value is smaller than minimum
         elif item < self.min:
-
             # then we push a dummy value calculated using the formula, (2 * item - current_min), setting new_min = item
             self.elements.append((2 * item) - self.min)
             self.min = item
@@ -29,7 +28,6 @@ class SpecialStack:
 
     def pop(self):
         if not self.is_empty():
-
             # popping the last element from the stacks
             item = self.elements.pop()
             actual_popped = item
@@ -82,7 +80,7 @@ if __name__ == "__main__":
     special_stack.push(12)
     print(special_stack.get_min())
 
-    print()    
+    print()
     print(special_stack.get_min())
 
     special_stack.pop()

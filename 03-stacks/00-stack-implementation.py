@@ -13,7 +13,6 @@ class TraditionalStack:
 
     def push(self, item):
         if not self.is_full():
-
             # adding the element to the stack
             self.elements.append(item)
             print(f"pushed {item}")
@@ -25,7 +24,6 @@ class TraditionalStack:
 
     def pop(self):
         if not self.is_empty():
-
             # popping the last element from the stack
             item = self.elements.pop()
             print(f"popped {item}")

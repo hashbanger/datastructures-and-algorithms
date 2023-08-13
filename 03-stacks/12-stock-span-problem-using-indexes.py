@@ -1,7 +1,7 @@
 # Solving the stock span problem using brute force and then stack
 # We begin pushing the first index in the stack
 # then onwards we pop the smaller/equal element indexes
-# if stack get empty, span would be current + 1 
+# if stack get empty, span would be current + 1
 # otherwise it would be current index - top index in stack
 # and we push the current index.
 class Stack:
@@ -34,7 +34,6 @@ def stock_span_solve_stack(array):
 
     # iterate through the array
     for i in range(len(array)):
-
         price = array[i]
 
         # if the stack is not empty and the price on the top is smaller then
