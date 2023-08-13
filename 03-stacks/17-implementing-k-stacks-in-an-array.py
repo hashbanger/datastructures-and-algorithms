@@ -25,8 +25,7 @@ class KStacks:
 
     def push(self, item, stack_num):
         if self.is_full():
-            print(f"Stack Overflow by {item}")
-            return
+            return False
 
         # get the current free index
         insert_at = self.free
@@ -45,8 +44,7 @@ class KStacks:
 
     def pop(self, stack_num):
         if self.is_empty(stack_num):
-            print("Stack Underflow!")
-            return None
+            return False
 
         # getting the current top of the corresponding stack
         stack_top = self.tops[stack_num]
@@ -68,8 +66,7 @@ class KStacks:
             stack_top = self.tops[stack_num]
             return self.elements[stack_top]
 
-        print("Stack underflow! No peek.")
-        return None
+        return False
 
     def peek_all(self, stack_num):
         if not self.is_empty(stack_num):
@@ -80,8 +77,7 @@ class KStacks:
             print()
             return
 
-        print("Stack Underflow!")
-        return
+        return False
 
 
 if __name__ == "__main__":
