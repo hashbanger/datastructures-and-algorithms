@@ -1,6 +1,7 @@
 # We want to implement a stack that supports the following operations in O(N) complexity.
 # push, pop, find the middle element, delete the middle element.
 # We will use a doubly linked list to implement this stack.
+# For even count of nodes middle is on the first right from middle.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -32,7 +33,7 @@ class LinkedList:
         if count == 1:
             self.middle = new_node
 
-        # if the number of nodes is even we select n % 2 = q as the middle
+        # if the number of nodes is even we select n / 2 = q as the middle
         # if the number of nodes turns odd we select q+1 the prev (just above in stack as the new middle)
         else:
             if count % 2 != 0:
@@ -91,28 +92,18 @@ class LinkedList:
 
 class MiddleStack:
     def __init__(self, size):
-        self.size = size
         self.top_count = -1
         self.elements = LinkedList()
-
-    def is_full(self):
-        return self.top_count == (self.size - 1)
 
     def is_empty(self):
         return self.top_count == -1
 
     def push(self, item):
-        if not self.is_full():
-            print(f"pushed {item}")
+        # we push the values to the front of the linked list
+        self.elements.insert_at_front(new_data=item, count=self.top_count + 1)
 
-            # we push the values to the front of the linked list
-            self.elements.insert_at_front(new_data=item, count=self.top_count + 1)
-
-            # increase the node count in the stack
-            self.top_count += 1
-        else:
-            print(f"Stack overflow by {item}")
-            return None
+        # increase the node count in the stack
+        self.top_count += 1
 
     def pop(self):
         if not self.is_empty():
@@ -121,27 +112,23 @@ class MiddleStack:
             item = self.elements.delete_node(
                 dele=self.elements.head, count=self.top_count + 1
             )
-            print(f"popped {item}")
 
             # reducing the node count in the stack
             self.top_count -= 1
+
+            return item
         else:
-            print(f"Stack underflow!")
+            False
 
     def get_middle(self):
         if not self.is_empty():
-            print(f"\nMiddle element in stack {self.elements.get_middle_node()}")
-
             # get the middle node from the linked list
             return self.elements.get_middle_node()
 
-        print("Stack underflow! No middle.")
-        return None
+        return False
 
     def delete_middle(self):
         if self.get_middle() is not None:
-            print("Deleting middle element.")
-
             # delete that node from the linkedlist
             self.elements.delete_node(self.elements.middle, count=self.top_count + 1)
 
@@ -149,16 +136,13 @@ class MiddleStack:
             self.top_count -= 1
             return
 
-        print("Stack underflow! Can't delete middle.")
-        return None
+        return False
 
     def peek(self):
         if not self.is_empty():
-            print(f"Top element {self.elements.head.data}")
             return self.elements.head.data
 
-        print("Stack underflow! No peek.")
-        return None
+        return False
 
     def peek_all(self):
         if not self.is_empty():
@@ -166,41 +150,37 @@ class MiddleStack:
             self.elements.print_list()
             return
 
-        print("Stack underflow! No peek.")
-        return None
+        return False
 
 
 if __name__ == "__main__":
     mstack = MiddleStack(5)
-    mstack.push(4)
-    mstack.push(3)
-    mstack.push(2)
-    mstack.push(1)
     mstack.push(0)
+    mstack.push(1)
+    mstack.push(2)
+    mstack.push(3)
+    mstack.push(4)
 
-    mstack.peek()
     mstack.peek_all()
 
-    mstack.get_middle()
+    print(mstack.get_middle())
 
     mstack.delete_middle()
     mstack.peek_all()
-    mstack.get_middle()
+    print(mstack.get_middle())
 
     mstack.pop()
-
-    mstack.get_middle()
-    mstack.pop()
-
-    mstack.get_middle()
-
     mstack.peek_all()
+    print(mstack.get_middle())
 
     mstack.pop()
-
-    mstack.get_middle()
-    mstack.pop()
-
-    mstack.pop()
-    mstack.get_middle()
     mstack.peek_all()
+    print(mstack.get_middle())
+
+    mstack.pop()
+    mstack.peek_all()
+    print(mstack.get_middle())
+
+    mstack.pop()
+    mstack.peek_all()
+    print(mstack.get_middle())
