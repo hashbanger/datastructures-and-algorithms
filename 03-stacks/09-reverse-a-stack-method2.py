@@ -4,7 +4,6 @@
 class Stack:
     def __init__(self):
         self.elements = []
-        self.output = []
 
     def is_empty(self):
         return not self.elements
@@ -56,14 +55,14 @@ class Stack:
 
 
 if __name__ == "__main__":
-    stack = Stack(10)
+    stack = Stack()
 
-    stack.push(5)
-    stack.push(4)
-    stack.push(3)
-    stack.push(2)
     stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.push(5)
 
     print(f"Stack: {stack.elements}")
-    stack.reverse_stack()
+    stack.reverse()
     print(f"Reversed Stack: {stack.elements}")
