@@ -54,7 +54,6 @@ class Queue:
         # if it is the last element
         # we return the element
         if self.stack.is_empty():
-
             self.count -= 1
             return top_element
 

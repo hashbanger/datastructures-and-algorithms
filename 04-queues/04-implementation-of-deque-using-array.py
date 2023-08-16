@@ -80,6 +80,7 @@ class TraditionalDequeue:
             return False
         return self.elements[self.rear]
 
+
 class Dequeue:
     def __init__(self):
         self.count = 0
@@ -87,7 +88,7 @@ class Dequeue:
 
     def get_size(self):
         return self.count
-    
+
     def is_empty(self):
         return not self.elements
 
@@ -122,6 +123,7 @@ class Dequeue:
             return self.elements
         return False
 
+
 if __name__ == "__main__":
     print("Traditional Dequeue:")
     dequeue = TraditionalDequeue(5)
@@ -131,7 +133,7 @@ if __name__ == "__main__":
     dequeue.insert_at_rear(1)
     dequeue.insert_at_rear(3)
     dequeue.insert_at_rear(5)
-    
+
     dequeue.peek_front()
     dequeue.peek_rear()
 

@@ -1,7 +1,12 @@
-# printing the maximum for each of the subarrays using sliding window
-import sys
-
-
+# Finding the maximum for each of the subarrays using sliding window, we use a dequeue built using linked list.
+# This method works on the indexes of the elements.
+# Initially we do it only for the first window number of elements.
+# The idea is to remove obsolete elements from the front and remove smaller elements from the rear.
+# For first window elements we just check the rear and remove smaller elements,
+# then for the remaining elements,
+# we keep checking obsolete indexes present in the queue and remove them, all done from the front
+# we also keep checking smaller elements indexes present in the queue and remove them, all done from rear.
+# we add the maximums from previous iteration in a list and finally return the list.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -28,8 +33,7 @@ class Dequeue:
     def insert_at_front(self, item):
         new_node = Node(item)
         if self.is_full():
-            print("Queue Overflow!")
-            return
+            return False
         elif self.is_empty():
             self.front = self.rear = new_node
         else:
@@ -43,8 +47,7 @@ class Dequeue:
         new_node = Node(item)
 
         if self.is_full():
-            print("Queue Overflow")
-            return
+            return False
         elif self.is_empty():
             self.front = self.rear = new_node
         else:
@@ -56,8 +59,7 @@ class Dequeue:
 
     def delete_from_front(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.front
         self.front = self.front.next
@@ -72,8 +74,7 @@ class Dequeue:
 
     def delete_from_rear(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.front
         self.rear = self.rear.prev
@@ -88,22 +89,19 @@ class Dequeue:
 
     def peek_front(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         return self.front.data
 
     def peek_rear(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         return self.rear.data
 
     def peek_all(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
+            return False
 
         temp = self.front
         while temp:
@@ -113,27 +111,28 @@ class Dequeue:
 
 
 def get_max_subarray_brute(arr, window):
-
+    maximum_list = []
     # iterating over each of the points till last window_size-th point
     for i in range(len(arr) - window + 1):
-        current_max = -sys.maxsize
+        current_max = -999999  # simulating the negative infinity, -sys.maxsize
 
         # iterate over all elements of the current window
         for j in range(i, i + window):
-
             # reassign maximum if greater
             if arr[j] > current_max:
                 current_max = arr[j]
 
-        print(f"Maximum {current_max}")
+        maximum_list.append(current_max)
+
+    return maximum_list
 
 
 def get_max_subarray_queue(arr, window):
     dqueue = Dequeue(len(arr))
+    maximums_list = []
 
     # first we will queue the elements' indexes in sorted order
     for i in range(window):
-
         # remove the elements' indexes from the queue if smaller than current element
         while (not dqueue.is_empty()) and (arr[dqueue.peek_rear()] < arr[i]):
             dqueue.delete_from_rear()
@@ -143,9 +142,8 @@ def get_max_subarray_queue(arr, window):
 
     # now we iterate through the remaining elements each
     for j in range(window, len(arr)):
-
-        # print the maximum for the previous window
-        print(f"Maximum {arr[dqueue.peek_front()]}")
+        # adding the maximum to list from previous window
+        maximums_list.append(arr[dqueue.peek_front()])
 
         # remove the elements from the front which are obsolete for the current window
         # i.e. more than [window] elements older than current index
@@ -159,13 +157,20 @@ def get_max_subarray_queue(arr, window):
         # insert the index of the current element
         dqueue.insert_at_rear(j)
 
-    print(f"Maximum {arr[dqueue.peek_front()]}")
+    maximums_list.append(arr[dqueue.peek_front()])
+    return maximums_list
 
 
 if __name__ == "__main__":
     arr = [24, 29, 30, 38, 46, 54, 20, 66, 89, 95, 10]
     window = 3
+
     print(f"Input array {arr}, window size {window}")
-    get_max_subarray_brute(arr, window)
+    maximums = get_max_subarray_brute(arr, window)
+    print(f"Maximums using brute: {maximums}")
+
     print()
-    get_max_subarray_queue(arr, window)
+
+    print(f"Input array {arr}, window size {window}")
+    maximums = get_max_subarray_queue(arr, window)
+    print(f"Maximums using queue: {maximums}")
