@@ -1,6 +1,8 @@
-# implementing a priority queue using a linked list
-
-
+# Implementing a highest priority first queue using a linked list
+# We take the priority value min as the highest priority
+# we enqueue them as per priority (lower the number more the priority)
+# if priority is higher we enqueu in front, else traverse till find right priority
+# then we dequeue normally from front.
 class Node:
     def __init__(self, data, priority):
         self.data = data
@@ -28,21 +30,19 @@ class PriorityQueue:
 
         # we insert the new node at its appropriate position in the list by priority comparision
         if self.is_full():
-            print(f"Queue Overflow by {value}")
-            return
+            return False
         elif self.is_empty():
             self.front = new_node
         else:
-
-            # if the priority is highest we insert it at the front
-            if self.front.priority < new_node.priority:
+            # if the priority is highest (lesser number) we insert it at the front
+            if self.front.priority > new_node.priority:
                 new_node.next = self.front
                 self.front = new_node
 
-            # otherwise we find the correct place
+            # otherwise we find the correct place iterating till a lower priority (higher number) is found
             else:
                 temp = self.front
-                while (temp.next != None) and (temp.next.priority > new_node.priority):
+                while (temp.next != None) and (temp.next.priority < new_node.priority):
                     temp = temp.next
 
                 # then insert the node there
@@ -53,8 +53,7 @@ class PriorityQueue:
 
     def dequeue(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
         item = self.front
         self.front = self.front.next
 
@@ -62,8 +61,7 @@ class PriorityQueue:
 
     def peek(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
+            return False
         return self.front
 
     def peek_all(self):
@@ -84,6 +82,7 @@ if __name__ == "__main__":
     pqueue.enqueue(19, 5)
     pqueue.enqueue(17, 3)
     pqueue.enqueue(20, 6)
+    pqueue.peek_all()
     print(f"Front element: {pqueue.peek().data}")
     print(f"Dequeued {pqueue.dequeue().data}")
     print(f"Front element: {pqueue.peek().data}")

@@ -1,5 +1,6 @@
-# implementing double ended queue using circular array
-class Dequeue:
+# Implementing a traditional double ended queue using circular array
+# Then a pythonic implementation more useful for problem solving.
+class TraditionalDequeue:
     def __init__(self, size):
         self.size = size
         self.elements = [None] * self.size
@@ -18,8 +19,7 @@ class Dequeue:
 
     def insert_at_front(self, item):
         if self.is_full():
-            print(f"Queue overflow by {item}")
-            return
+            return False
 
         if self.is_empty():
             self.rear = 0
@@ -35,8 +35,7 @@ class Dequeue:
 
     def insert_at_rear(self, item):
         if self.is_full():
-            print(f"Queue Overflow by {item}")
-            return
+            return False
 
         if self.is_empty():
             self.front = 0
@@ -47,8 +46,7 @@ class Dequeue:
 
     def delete_from_front(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.elements[self.front]
 
@@ -59,8 +57,7 @@ class Dequeue:
 
     def delete_from_rear(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.elements[self.rear]
 
@@ -75,28 +72,66 @@ class Dequeue:
 
     def peek_front(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
-        print(f"Front element: {self.elements[self.front]}")
+            return False
         return self.elements[self.front]
 
     def peek_rear(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
-        print(f"Rear element: {self.elements[self.rear]}")
+            return False
         return self.elements[self.rear]
 
+class Dequeue:
+    def __init__(self):
+        self.count = 0
+        self.elements = []
+
+    def get_size(self):
+        return self.count
+    
+    def is_empty(self):
+        return not self.elements
+
+    def insert_at_front(self, item):
+        self.elements.insert(0, item)
+
+    def insert_at_rear(self, item):
+        self.elements.append(item)
+
+    def delete_from_front(self):
+        if not self.is_empty():
+            self.elements.pop(0)
+        return False
+
+    def delete_from_rear(self):
+        if not self.is_empty():
+            self.elements.pop()
+        return False
+
+    def peek_front(self):
+        if not self.is_empty():
+            return self.elements[0]
+        return False
+
+    def peek_rear(self):
+        if not self.is_empty():
+            return self.elements[-1]
+        return False
+
+    def peek_all(self):
+        if not self.is_empty():
+            return self.elements
+        return False
 
 if __name__ == "__main__":
-    dequeue = Dequeue(5)
+    print("Traditional Dequeue:")
+    dequeue = TraditionalDequeue(5)
     dequeue.insert_at_rear(4)
     dequeue.insert_at_rear(2)
     dequeue.insert_at_rear(0)
     dequeue.insert_at_rear(1)
     dequeue.insert_at_rear(3)
     dequeue.insert_at_rear(5)
-
+    
     dequeue.peek_front()
     dequeue.peek_rear()
 
@@ -124,3 +159,46 @@ if __name__ == "__main__":
 
     dequeue.peek_front()
     dequeue.peek_rear()
+
+    print("\nDequeue:")
+    dequeue = Dequeue()
+    dequeue.insert_at_rear(4)
+    dequeue.insert_at_rear(2)
+    dequeue.insert_at_rear(0)
+    dequeue.insert_at_rear(1)
+    dequeue.insert_at_rear(3)
+    dequeue.insert_at_rear(5)
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())
+
+    dequeue.delete_from_front()
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())
+
+    dequeue.insert_at_front(6)
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())
+
+    dequeue.delete_from_rear()
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())
+
+    dequeue.insert_at_rear(5)
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())
+
+    dequeue.delete_from_front()
+
+    print(dequeue.peek_all())
+    print(dequeue.peek_front())
+    print(dequeue.peek_rear())

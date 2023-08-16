@@ -1,43 +1,25 @@
-# implementing a queue using stacks using recursion
+# Implementing a queue using stacks using recursion
+# We hold out the elements in recursion stack until the last element
+# then we return back the last element and push back the hold out elements.
 class Stack:
-    def __init__(self, size):
-        self.top = -1
-        self.size = size
+    def __init__(self):
         self.elements = []
 
     def is_empty(self):
-        return self.top == -1
-
-    def is_full(self):
-        return self.top == (self.size - 1)
+        return not self.elements
 
     def push(self, item):
-        if not self.is_full():
-
-            # adding the element to the stack
-            self.elements.append(item)
-
-            # increasing the top to one position up
-            self.top += 1
-        else:
-            return False
+        self.elements.append(item)
 
     def pop(self):
         if not self.is_empty():
-
-            # popping the last element from the stack
             item = self.elements.pop()
-
-            # decreasing the top to one position down
-            self.top -= 1
             return item
-        else:
-            return False
 
     def peek(self):
         if not self.is_empty():
-            return self.elements[self.top]
-        return
+            return self.elements[-1]
+        return False
 
 
 class Queue:
@@ -57,8 +39,7 @@ class Queue:
 
     def enqueue(self, item):
         if self.is_full():
-            print(f"Queue Overflow by {item}")
-            return
+            return False
 
         self.stack.push(item)
 
@@ -66,8 +47,7 @@ class Queue:
 
     def dequeue(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
+            return False
 
         top_element = self.stack.pop()
 
@@ -87,14 +67,12 @@ class Queue:
 
     def peek(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
+            return False
 
         top_element = self.stack.pop()
 
         # if it's the last element we print it and add it back
         if self.stack.is_empty():
-            print(f"Front {top_element}")
             self.stack.push(top_element)
 
             return top_element

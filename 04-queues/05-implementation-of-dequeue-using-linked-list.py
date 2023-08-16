@@ -25,8 +25,7 @@ class Dequeue:
     def insert_at_front(self, item):
         new_node = Node(item)
         if self.is_full():
-            print("Queue Overflow!")
-            return
+            return False
         elif self.is_empty():
             self.front = self.rear = new_node
         else:
@@ -40,8 +39,7 @@ class Dequeue:
         new_node = Node(item)
 
         if self.is_full():
-            print("Queue Overflow")
-            return
+            return False
         elif self.is_empty():
             self.front = self.rear = new_node
         else:
@@ -53,8 +51,7 @@ class Dequeue:
 
     def delete_from_front(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.front
         self.front = self.front.next
@@ -69,8 +66,7 @@ class Dequeue:
 
     def delete_from_rear(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
         item = self.front
         self.rear = self.rear.prev
@@ -85,24 +81,19 @@ class Dequeue:
 
     def peek_front(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
-        print(f"Front {self.front.data}")
         return self.front.data
 
     def peek_rear(self):
         if self.is_empty():
-            print("Queue Underflow!")
-            return
+            return False
 
-        print(f"Rear {self.rear.data}")
         return self.rear.data
 
     def peek_all(self):
         if self.is_empty():
-            print("Queue Underflow")
-            return
+            return False
 
         temp = self.front
         while temp:

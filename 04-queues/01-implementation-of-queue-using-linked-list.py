@@ -23,7 +23,6 @@ class Queue:
         return self.get_size() == self.size
 
     def enqueue(self, item):
-
         # we add node towards the rear
         if self.is_full():
             print(f"Queue Overflow by {item}")
@@ -40,7 +39,6 @@ class Queue:
         self.count += 1
 
     def dequeue(self):
-
         # we remove a node from the front
         if self.is_empty():
             print("Queue Underflow!")
