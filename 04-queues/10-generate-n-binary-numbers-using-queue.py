@@ -1,4 +1,7 @@
-# generating binary numbers 1 to N using a queue
+# Generating binary numbers 1 to N using a queue.
+# The idea is very simple, if you start with 1 and enqueue it,
+# then at each iteration you remove from the queue and enqueue the same element once with added 0 and once with added 1.
+# 1 --> (10, 11),  10 --> (100, 101), 11 --> (110, 111)...
 class Queue:
     def __init__(self, size):
         self.size = size
