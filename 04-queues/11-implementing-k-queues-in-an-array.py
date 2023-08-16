@@ -1,4 +1,7 @@
-# implementing k-number of queues in a single array with space efficient approach
+# Implementing k-number of queues in a single array with space efficient approach
+# We implement this in a similar way as k-stacks in an array, only that we would keep track of front and rear as well
+# and update front at every dequeue.
+# watch this explanation https://www.youtube.com/watch?v=_gJ3to4RyeQ&t=5150s
 
 
 class KQueues:
@@ -20,8 +23,7 @@ class KQueues:
 
     def enqueue(self, q_num, item):
         if self.is_full(q_num):
-            print(f"Queue {q_num} Overflow by {item}")
-            return
+            return False
 
         # get the next free slot index
         next_free = self.nexts[self.free]
@@ -45,8 +47,7 @@ class KQueues:
 
     def dequeue(self, q_num):
         if self.is_empty(q_num):
-            print(f"Queue {q_num} Underflow!")
-            return
+            return False
 
         front_idx = self.fronts[q_num]
         item = self.elements[front_idx]
@@ -63,11 +64,10 @@ class KQueues:
 
     def peek(self, q_num):
         if self.is_empty(q_num):
-            print(f"Queue {q_num} Underflow!")
-            return
+            return False
 
         front = self.elements[self.fronts[q_num]]
-        print(f"Front of Queue-{q_num} {front}")
+        return front
 
 
 if __name__ == "__main__":
