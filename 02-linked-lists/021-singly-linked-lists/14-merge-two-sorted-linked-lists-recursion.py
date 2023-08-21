@@ -1,3 +1,6 @@
+# Merging two sorted linked lists
+# Here the idea is simple, in recursion we hold the smaller element and do a recursive call on whichever is smaller next until we run out of all nodes.
+# If one of them runs out we point it to other head.
 class Node:
     def __init__(self, data):
         self.data = data

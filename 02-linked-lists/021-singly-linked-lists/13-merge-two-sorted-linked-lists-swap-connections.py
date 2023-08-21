@@ -1,3 +1,12 @@
+# Merging two sorted linked lists
+# The idea here is to only change the connections where sorting is breaking in the lists and join them to other list.
+# We also have to take a pointer that would move at each step it would be used to change the next connections in the list.
+# Initially we test if any of the two doesn't exist, if yes then we would just return the existing one,
+# othwerwise, we would store the head_a as we want it to be the smaller head always
+# and it has to be the final head to be returned, so we keep keep swapping heads where head_a becomes larger than other.
+# At the start we make the head whichever one is smaller and keep moving the pointer and head until they are smaller than other head,
+# as it become larger we make the next connection to the other head and swap heads and do the procedure again until there is conflict.
+# We keep repeating until any one of them becomes None.
 class Node:
     def __init__(self, data):
         self.data = data

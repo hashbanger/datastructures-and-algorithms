@@ -1,3 +1,8 @@
+# Merging two sorted linked lists
+# First we take a dummy node to join everything to, eventually we will return its next as the head of combined list.
+# We also have to take a pointer that would move at each step to add the next node from the lists.
+# Initially we test if any of the two doesn't exist, if yes then we would just join the existing one to the tail and be done,
+# othwerwise we would compare the smaller head, add its node and move its head ahead to next and do this until we have traversed both.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -24,29 +29,28 @@ class LinkedList:
 # merging two sorted linked lists
 def merge_linked_lists(head_a, head_b):
     dummy_node = Node(None)
-    tail = dummy_node
+    ptr = dummy_node
     while True:
-
         # if a doesn't exist or is exhausted
-        if head_a == None:
-            tail.next = head_b
+        if head_a is None:
+            ptr.next = head_b
             break
 
         # if b doesn't exist of is exhausted
-        if head_b == None:
-            tail.next = head_a
+        if head_b is None:
+            ptr.next = head_a
             break
 
         # if both are present then
         if head_a.data < head_b.data:
-            tail.next = head_a
+            ptr.next = head_a
             head_a = head_a.next
         else:
-            tail.next = head_b
+            ptr.next = head_b
             head_b = head_b.next
 
         # move the tail pointer
-        tail = tail.next
+        ptr = ptr.next
 
     # return the node next to head
     return dummy_node.next
