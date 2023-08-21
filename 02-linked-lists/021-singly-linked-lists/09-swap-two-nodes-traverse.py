@@ -1,3 +1,6 @@
+# Swapping the nodes of the linked list by just iterating to each required node and keeping track of their previous and current.
+# Then we just check neither of them are head, if they are we set correct heads,
+# then we just swap their nexts accordingly.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -23,14 +26,14 @@ class LinkedList:
         # searching for x (keeping track of previous and current)
         previous_x = None
         current_x = self.head
-        while current_x != None and current_x.data != x:
+        while current_x is not None and current_x.data != x:
             previous_x = current_x
             current_x = current_x.next
 
         # searching for y (keeping track of previous and current)
         previous_y = None
         current_y = self.head
-        while current_y != None and current_y.data != y:
+        while current_y is not None and current_y.data != y:
             previous_y = current_y
             current_y = current_y.next
 
@@ -42,13 +45,13 @@ class LinkedList:
         # then swap the next node chains
 
         # if x is not the head of the list
-        if previous_x != None:
+        if previous_x is not None:
             previous_x.next = current_y
         else:
             self.head = current_y
 
         # if y is not the head of the list
-        if previous_y != None:
+        if previous_y is not None:
             previous_y.next = current_x
         else:
             self.head = current_x

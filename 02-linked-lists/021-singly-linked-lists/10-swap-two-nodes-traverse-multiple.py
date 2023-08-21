@@ -34,7 +34,7 @@ class LinkedList:
             head_ref = head_ref.next
 
         # if x is head of the list
-        if prev_x == None and self.head.data == x:
+        if prev_x is None and self.head.data == x:
             head_x = self.head
             self.head = prev_y.next
             temp = prev_y.next.next
@@ -43,7 +43,7 @@ class LinkedList:
             prev_y.next = head_x
             return
         # if y is head of the list
-        elif prev_y == None and self.head.data == y:
+        elif prev_y is None and self.head.data == y:
             head_y = self.head
             self.head = prev_x.next
             temp = prev_x.next.next

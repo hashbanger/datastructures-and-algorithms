@@ -17,8 +17,7 @@ class LinkedList:
     # Function to insert after a given previous node
     def insert_after(self, previous_node, new_data):
         if previous_node is None:
-            print("The given previous node must be in the Linked List.")
-            return
+            return False
 
         # creating a node with new data
         new_node = Node(new_data)
@@ -38,7 +37,7 @@ class LinkedList:
 
         # iterate to the last node
         last_node = self.head
-        while last_node.next:
+        while last_node.next is not None:
             last_node = last_node.next
 
         # make the new node as the last node

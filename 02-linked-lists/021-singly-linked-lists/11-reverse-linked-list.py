@@ -1,3 +1,5 @@
+# The method is simple, just keep track of previous node, current and next node and move pointers in correct order.
+# Traverse till you reach None and make previous head.
 class Node:
     def __init__(self, data):
         self.data = data
@@ -18,7 +20,7 @@ class LinkedList:
         previous_node = None
         next_node = None
         current_node = self.head
-        while current_node != None:
+        while current_node is not None:
             # store the next node
             next_node = current_node.next
             # revert the next of current node to previous

@@ -1,3 +1,4 @@
+# Finding the length of the linked list using brute force approach of traversing and counting.
 class Node:
     def __init__(self, data):
         self.data = data
